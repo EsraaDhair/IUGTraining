@@ -19,7 +19,7 @@ class CreateEnterprisesTable extends Migration
             $table->string('email')->unique();
             $table->string('mobile',10)->unique();
             $table->integer('addressId')->unsigned();
-            $table->foreign('addressId')->references('id')->on('users');
+            $table->foreign('addressId')->references('id')->on('address');
             $table->timestamps();
         });
     }
