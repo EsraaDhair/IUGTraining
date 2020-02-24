@@ -14,10 +14,10 @@ class CreatePasswordsTable extends Migration
     public function up()
     {
         Schema::create('passwords', function (Blueprint $table) {
-            $table->Increments('userId');
-            $table->string('password');
-            $table->foreign('userId')->references('id')->on('users');
-            $table->timestamps();
+                $table->Increments('userId')->unsigned();
+                $table->string('password');
+                $table->foreign('userId')->references('id')->on('users');
+                $table->timestamps();
         });
     }
 

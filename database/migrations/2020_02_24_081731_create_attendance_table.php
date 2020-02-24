@@ -19,7 +19,7 @@ class CreateAttendanceTable extends Migration
             $table->time('startWork');
             $table->time('endWork');
             $table->string('comment',255)->nullable();
-            $table->foreign('studentUserId')->references('id')->on('students');
+            $table->foreign('studentUserId')->references('userId')->on('students');
             $table->timestamps();
         });
     }
