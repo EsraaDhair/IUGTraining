@@ -16,10 +16,12 @@ class CreateEnterprisesTable extends Migration
         Schema::create('enterprises', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('name');
+            $table->string('logo');
             $table->string('email')->unique();
             $table->string('mobile',10)->unique();
             $table->integer('addressId')->unsigned();
             $table->foreign('addressId')->references('id')->on('address');
+            $table->boolean('hosting')->default(0);
             $table->timestamps();
         });
     }

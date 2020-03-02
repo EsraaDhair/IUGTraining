@@ -17,12 +17,13 @@ class CreateTrainingTable extends Migration
             $table->string('id',4);
             $table->string('sector',191);
             $table->enum('type',['S','G']);
-            $table->integer('enterpriseId')->unsigned();
+            $table->integer('enterpriseId')->unsigned()->nullable();
             $table->integer('studentId')->unsigned();
             $table->integer('work_timeId')->unsigned();
             $table->foreign('enterpriseId')->references('id')->on('enterprises');
             $table->foreign('studentId')->references('id')->on('students');
             $table->foreign('work_timeId')->references('id')->on('work_times');
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }
