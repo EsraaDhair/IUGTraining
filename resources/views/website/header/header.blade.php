@@ -1,0 +1,21 @@
+<div class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="#">    <img src="{{asset('website/img/logo.png')}}" width="50" height="50" class="d-inline-block" alt="logo">
+        كلية تكنولوجيا المعلومات</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">الرئيسية <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">دليل التدريب</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">لجنة التدريب</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">الشركات</a>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
+    </div>
+</div>

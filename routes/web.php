@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('website/home');
 });
+Route::get('/student/create','websitecontrollers\stdRegistrationController@create')->name('std.create');
+Route::post('/student','websitecontrollers\stdRegistrationController@store')->name('std.store');
+
