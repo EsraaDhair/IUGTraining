@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Enterprise extends Model
+class Slider extends Model
 {
-    protected $table = 'enterprises';
+    protected $table = 'slider';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'logo', 'email', 'mobile','addressId'];
+    protected $fillable = ['image','title','subTitle','url'];
     protected $dates = ['created_at', 'updated_at'];
 }

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\websitecontrollers;
 
+use App\Address;
 use App\Http\Controllers\Controller;
+use App\Student;
+use App\Training;
+use App\User;
 use Illuminate\Http\Request;
 
 class stdRegistrationController extends Controller
@@ -15,19 +19,85 @@ class stdRegistrationController extends Controller
      */
     public function create()
     {
-        return view('website.registration.stdRegister');
+        $sectors=['Web Development-frontEnd','Web Development-backEnd','Mobile-Android','Mobile-IOS','Graphic Design','Computer Network','Database','Animation'];
+        return view('website.registration.stdRegister',['sectors'=>$sectors]);
 
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validation = $request->validate($this->rules(), $this->messages());
+        if ($validation) {
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->mobile = $request->phone;
+            $user->save();
+            $address = new Address();
+            $address->city = $request->city;
+            $address->street = $request->street;
+            $address->save();
+            $student = new Student();
+            $student->userId = $user->id;
+            $student->addressId = $address->id;
+            $student->stdId = $request->stdID;
+            $student->niche = $request->niche;
+            $student->save();
+            $training = new Training();
+            $training->id='TR'.$user->id;
+            $training->studentId = $user->id;
+            if (!empty($request->placeOfTraining)) {
+                $training->placeOfTraining = $request->placeOfTraining;
+            }
+            $training->sector = implode(',', $request->sectors);
+            if($request->type=="general"){
+                $training->type='G';
+            }else if($request->type=="special"){
+                $training->type='S';
+            }
+            $training->save();
+            return redirect()->back()->with('success', 'تم تسجيل بياناتك بنجاح!');
+        }
+        return redirect()->back()->with('error', 'هناك خطأ في بياناتك!');
+
+    }
+
+    private function rules(){
+        return[
+            'name'=>'required',
+            'stdID'=>'required|unique:students,stdId',
+            'email'=>'required|email|:users,email',
+            'phone'=>'required|unique:users,mobile',
+            'city'=>'required',
+            'niche'=>'required',
+            'street'=>'required',
+            'sectors'=>'required',
+            'type'=>'required',
+        ];
+    }
+    private function messages(){
+        return[
+            'name.required'=>'يجب إدخال الاسم',
+            'stdID.required'=>'يجب إدخال الرقم الجامعي',
+            'stdID.unique'=>'تم إدخال هذا الرقم مسبقاً',
+            'email.required'=>'يجب إدخال الايميل',
+            'email.unique'=>'تم إدخال هذا الايميل مسبقاً',
+            'phone.required'=>'يجب إدخال رقم الجوال',
+            'phone.unique'=>'تم إدخال هذا الرقم مسبقاً',
+            'city.required'=>'يجب إدخال المدينة',
+            'street.required'=>'يجب إدخال الشارع',
+            'sectors.required'=>'يجب اختيار مجال التدريب',
+            'niche.required'=>'يجب اختيار التخصص',
+            'placeOfTraining.optional'=>'أدخل مكان التدريب',
+            'type.required'=>'يجب اختيار نوع التدريب',
+
+        ];
     }
 
 }

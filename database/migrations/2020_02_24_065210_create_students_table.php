@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->Increments('userId')->unsigned();
             $table->string('stdId',9);
             $table->enum('niche',['SD','MM','CS','IS','MO']);
-            $table->integer('endedHours');
+//            $table->integer('endedHours');
             $table->integer('addressId')->unsigned();
             $table->foreign('userId')->references('id')->on('users');
             $table->foreign('addressId')->references('id')->on('address');
