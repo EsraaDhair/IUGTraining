@@ -4,6 +4,7 @@ namespace App\Http\Controllers\websitecontrollers;
 
 use App\Address;
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\Student;
 use App\Training;
 use App\User;
@@ -32,6 +33,7 @@ class stdRegistrationController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->sectors);
         $validation = $request->validate($this->rules(), $this->messages());
         if ($validation) {
             $user = new User();
@@ -39,6 +41,10 @@ class stdRegistrationController extends Controller
             $user->email = $request->email;
             $user->mobile = $request->phone;
             $user->save();
+            $role=new Role();
+            $role->userId=$user->id;
+            $role->type='student';
+            $role->save();
             $address = new Address();
             $address->city = $request->city;
             $address->street = $request->street;

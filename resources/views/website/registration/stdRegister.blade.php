@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="form-group">
                                         <p>يمكنك الضغط على  control-click (Windows) or command-click (Mac) لاختيار اكثر من تخصص </p>
-                                        <select class="form-control" name="sectors" multiple size="3">
+                                        <select class="form-control" name="sectors[]" multiple size="3">
                                             @foreach ($sectors as $key => $sector)
                                                 <option value="{{ $sector}}" {{ (old("sectors") == $sector ? "selected":"") }}>{{ $sector }}</option>
                                             @endforeach
