@@ -15,13 +15,6 @@
     <link rel="stylesheet" href="{{asset('website/css/form_style.css')}}">
 @endsection
 @section('content')
-{{--    <div class="jumbotron" style="background-image: url('{{asset('website/img/lap3.jpg')}}');opacity:0.7; background-attachment: fixed;background-size: cover;height: 400px">--}}
-{{--        <div class="card rounded-pill" style="text-align: center ; width: 25% "  >--}}
-{{--            <div class="card-body" style="padding-top: 10px;padding-bottom: 10px">--}}
-{{--                أهلاً و سهلاً بكم في التسجيل لتدريب الميداني لعام 2020/2021--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
     <div class="container register" style="margin-bottom: 100px">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -106,13 +99,35 @@
                                     <div class="form-group">
                                         <p class="display-5" style="text-align: center">   نوع التدريب *</p>
                                     </div>
-                                    <div class="form-group">
-                                        <p>يمكنك الضغط على  control-click (Windows) or command-click (Mac) لاختيار اكثر من تخصص </p>
-                                        <select class="form-control" name="sectors[]" multiple size="3">
-                                            @foreach ($sectors as $key => $sector)
-                                                <option value="{{ $sector}}" {{ (old("sectors") == $sector ? "selected":"") }}>{{ $sector }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-group" >
+{{--                                        <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Web Development(Front-end)">Web Development(Front-end)--}}
+{{--                                        </label>--}}
+{{--                                        <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Web Development(Back-end)">Web Development(Back-end)--}}
+{{--                                        </label>--}}
+{{--                                        <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Mobile(Android)">Mobile(Android)--}}
+{{--                                        </label>--}}
+{{--                                        <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Mobile(IOS)">Mobile(IOS)--}}
+{{--                                        </label>--}}
+{{--                                        <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Graphic Design">Graphic Design--}}
+{{--                                        </label>--}}
+{{--                                        <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Computer Network">Computer Network--}}
+{{--                                        </label> <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Database">Database--}}
+{{--                                        </label> <label class="form-check-label">--}}
+{{--                                            <input type="checkbox" class="form-check-input" value="Animation">Animation--}}
+{{--                                        </label>--}}
+{{--                                        <p>يمكنك الضغط على  control-click (Windows) or command-click (Mac) لاختيار اكثر من تخصص </p>--}}
+{{--                                        <select class="form-control" name="sectors[]" multiple size="3">--}}
+{{--                                            @foreach ($sectors as $key => $sector)--}}
+{{--                                                <option value="{{ $sector}}" {{ (old("sectors") == $sector ? "selected":"") }}>{{ $sector }}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        </select>--}}
 {{--                                          <select class="form-control" name="sector[]" multiple size="3">--}}
 {{--                                            <option class="hidden"  selected disabled>مجال التدريب *</option>--}}
 {{--                                            <option value="web front" {{ old('sectors') == "web front" ? 'selected' : '' }}>Web Development(Front-end)</option>--}}
@@ -124,11 +139,12 @@
 {{--                                            <option value="DB" {{ old('sectors') == "DB" ? 'selected' : '' }}>Database</option>--}}
 {{--                                            <option value="animation" {{ old('sectors') == "animation" ? 'selected' : '' }}>Animation</option>--}}
 {{--                                        </select>--}}
-                                        <span class="error">{{$errors->first('sectors')}}</span>
+{{--                                        <span class="error">{{$errors->first('sectors')}}</span>--}}
 
                                     </div>
                                     <div class="form-group" style="display: none" id="enterprise">
                                         <input type="text" class="form-control" placeholder="مكان الندريب *" name="placeOfTraining" value="{{old('placeOfTraining')}}"/>
+                                        <span class="error">{{$errors->first('placeOfTraining')}}</span>
                                     </div>
 
                                 </div>
@@ -147,6 +163,108 @@
                                         <span class="error">{{$errors->first('type')}}</span>
                                     </div>
                                 </div>
+                                <div class="col-md-12" style="margin-top: 20px ; display: none" id="choice">
+                                    <p style="text-align: right;">اختار مجال التدريب</p>
+                                    <div class="row icheck_minimal skin">
+                                        {{--                                            <div class="col-md-6 col-sm-12">--}}
+                                        <fieldset>
+                                            <input type="radio" id="input-5" name="choice" value="Web-FrontEnd">
+                                            <label for="input-5">Web-FrontEnd</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-6" name="choice" value="Web-BackEnd">
+                                            <label for="input-6">Web-BackEnd</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-7"  name="choice" value="Mobile-Android">
+                                            <label for="input-7">Mobile-Android </label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-8"  name="choice" value="Mobile-IOS">
+                                            <label for="input-8">Mobile-IOS</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-9" name="choice" value="Graphic Design">
+                                            <label for="input-9">Graphic Design</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-10" name="choice" value="Database">
+                                            <label for="input-10">Database</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-11" name="choice" value="Animation">
+                                            <label for="input-11">Animation</label>
+                                        </fieldset>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12" style="margin-top: 20px ; display: none" id="choices">
+                                    <p style="text-align: right;">اختار مجال التدريب - الرغبة الأولى</p>
+                                    <div class="row icheck_minimal skin">
+                                        {{--                                            <div class="col-md-6 col-sm-12">--}}
+                                        <fieldset>
+                                            <input type="radio" id="input-5" name="choice1" value="Web-FrontEnd">
+                                            <label for="input-5">Web-FrontEnd</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-6" name="choice1" value="Web-BackEnd">
+                                            <label for="input-6">Web-BackEnd</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-7"  name="choice1" value="Mobile-Android">
+                                            <label for="input-7">Mobile-Android </label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-8"  name="choice1" value="Mobile-IOS">
+                                            <label for="input-8">Mobile-IOS</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-9" name="choice1" value="Graphic Design">
+                                            <label for="input-9">Graphic Design</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-10" name="choice1" value="Database">
+                                            <label for="input-10">Database</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-11" name="choice1" value="Animation">
+                                            <label for="input-11">Animation</label>
+                                        </fieldset>
+                                    </div>
+                                    <p style="text-align: right;">اختار مجال التدريب - الرغبة الثانية</p>
+                                    <div class="row icheck_minimal skin">
+                                        {{--                                            <div class="col-md-6 col-sm-12">--}}
+                                        <fieldset>
+                                            <input type="radio" id="input-5" name="choice2" value="Web-FrontEnd">
+                                            <label for="input-5">Web-FrontEnd</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-6" name="choice2" value="Web-BackEnd">
+                                            <label for="input-6">Web-BackEnd</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-7"  name="choice2" value="Mobile-Android">
+                                            <label for="input-7">Mobile-Android </label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-8"  name="choice2" value="Mobile-IOS">
+                                            <label for="input-8">Mobile-IOS</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-9" name="choice2" value="Graphic Design">
+                                            <label for="input-9">Graphic Design</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-10" name="choice2" value="Database">
+                                            <label for="input-10">Database</label>
+                                        </fieldset>
+                                        <fieldset>
+                                            <input type="radio" id="input-11" name="choice2" value="Animation">
+                                            <label for="input-11">Animation</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-12">
                                     <input type="submit" class="btnRegister" name="submit"  value="تسجيل"/>
                                 </div>
@@ -172,6 +290,8 @@
             // Get the checkbox
             var special = document.getElementById("special");
             var general = document.getElementById("general");
+            var choice = document.getElementById("choice");
+            var choices = document.getElementById("choices");
             // Get the output text
             var enterprise = document.getElementById("enterprise");
 
@@ -179,9 +299,13 @@
             if (special.checked == true) {
                 console.log('special');
                 enterprise.style.display = "unset";
+                choice.style.display = "unset";
+                choices.style.display = "none";
             } else if (general.checked == true){
                 console.log('general');
                 enterprise.style.display = "none";
+                choice.style.display = "none";
+                choices.style.display = "unset";
             }
         }
     </script>
