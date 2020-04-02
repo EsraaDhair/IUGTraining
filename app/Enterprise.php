@@ -10,4 +10,13 @@ class Enterprise extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'logo', 'email', 'mobile','addressId'];
     protected $dates = ['created_at', 'updated_at'];
+
+    public function getLogoAttribute($value)
+    {
+        if($value){
+            return url('uploads/images/enterpriseLogo/'.$value);
+        }else{
+            return url('uploads/images/enterpriseLogo/defualt.jpg');
+        }
+    }
 }
