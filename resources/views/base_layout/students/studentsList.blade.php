@@ -33,6 +33,9 @@
                 @endforelse
                 </tbody>
             </table>
+            <div class="com-md-12 text-right">
+                {{$students->links()}}
+            </div>
         </div>
     </div>
     <!-- END SAMPLE TABLE PORTLET-->
