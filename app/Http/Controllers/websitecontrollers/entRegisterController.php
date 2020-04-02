@@ -10,10 +10,13 @@ use App\TrainingSector;
 use App\User;
 use App\WorkTime;
 use Illuminate\Http\Request;
+use App\Traits\ImgaeUpload;
+
 
 class entRegisterController extends Controller
 {
 
+    use ImgaeUpload;
     /**
      * Show the form for creating a new resource.
      *
@@ -33,6 +36,7 @@ class entRegisterController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->logo);
         $validation = $request->validate($this->rules(), $this->messages());
         if ($validation) {
             $address = new Address();
@@ -41,16 +45,21 @@ class entRegisterController extends Controller
             $address->save();
             $enterprise = new Enterprise();
             $enterprise->name = $request->entName;
-            if ($request->hasFile('logo')) {
-                $image = $request->file('logo');
-                $extention = $image->getClientOriginalExtension();
-                $file_name = str_random(15) . "" . rand(1000000, 9999999) . "" . time() . "_" . rand(1000000, 9999999) . "." . $extention;
-                Image::make($image)->resize(800, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save("uploads/images/enterpriseLogo/$file_name");
-                $enterprise->logo = $file_name;
+            if ($request->has('logo')) {
+                $request->logo=$this->UserImageUpload($request['logo'],'enterprises');
+//                dd( $request->logo);
+
+//                $image = $request->file('logo');
+//                $extention = $image->getClientOriginalExtension();
+//                $file_name = str_random(15) . "" . rand(1000000, 9999999) . "" . time() . "_" . rand(1000000, 9999999) . "." . $extention;
+//                Image::make($image)->resize(800, null, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                })->save("uploads/images/enterpriseLogo/$file_name");
+//                $enterprise->logo = $file_name;
             }
+
             $enterprise->email = $request->email;
+            $enterprise->logo = $request->logo;
             $enterprise->mobile = $request->mobile;
             $enterprise->addressId = $address->id;
             $enterprise->save();
@@ -110,11 +119,12 @@ class entRegisterController extends Controller
         return[
             'entName'=>'required',
             'city'=>'required',
-            'email'=>'required|email|:enterprises,email',
+            'email'=>'required|email|unique:enterprises,email',
             'mobile'=>'required|unique:enterprises,mobile|max:10',
             'street'=>'required',
             'supName'=>'required',
             'jobTitle'=>'required',
+            'logo'=>'required'
         ];
     }
     private function messages(){
@@ -129,6 +139,7 @@ class entRegisterController extends Controller
             'street.required'=>'يجب إدخال الشارع',
             'supName.required'=>'يجب ادخال اسم المشرف',
             'jobTitle.required'=>'يجب ادخال تخصص المشرف',
+            'logo.required'=>'يجب ادراج صورة الشعار',
         ];
     }
 

@@ -29,7 +29,7 @@
                             </div>
                         @endif
                     </div>
-                    <form action="{{route('ent.store')}}" method="post">
+                    <form action="{{route('ent.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                     <div class="tab-pane fade show active" id="enterprise" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">بيانات الشركة</h3>
@@ -40,7 +40,14 @@
                                     <span class="error">{{$errors->first('entName')}}</span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="العنوان(المدينة)*" name="city" value="{{old('city')}}"/>
+                                    <select class="form-control" name="city">
+                                        <option class="hidden"  selected disabled> العنوان ( المدينة ) *</option>
+                                        <option value="Rafah" {{ old('city') == "Rafah" ? 'selected' : '' }}>رفح</option>
+                                        <option value="Gaza" {{ old('city') =="Gaza" ? 'selected' : '' }}>غزة</option>
+                                        <option value="khan Yonis" {{ old('city') == "khan Yonis" ? 'selected' : '' }}>خانيونس</option>
+                                        <option value="middle" {{ old('city') == "middle" ? 'selected' : '' }}>الوسطى</option>
+                                        <option value="north" {{ old('city') == "north" ? 'selected' : '' }}>الشمال</option>
+                                    </select>
                                     <span class="error">{{$errors->first('city')}}</span>
                                 </div>
                                 <div class="form-group">
@@ -48,29 +55,36 @@
                                     <span class="error">{{$errors->first('email')}}</span>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <div class="form-group {{ $errors->has('logo') ? ' has-error' : '' }}">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                @if ($errors->has('logo'))
-                                                    <span class="help-block">
-                                                <strong>{{ $errors->first('logo') }}</strong>
-                                            </span>
-                                                @endif
-                                                <div class="fileinput-new thumbnail"
-                                                     onclick="document.getElementById('edit_image').click()"
-                                                     style="cursor:pointer">
-                                                    <img src=" {{url(asset('website/img/ChoosePhoto.png'))}}" id="editImage">
-                                                </div>
-                                                <div class="btn red"
-                                                     onclick="document.getElementById('edit_image').click()">
-                                                    <i class="fa fa-pencil"></i>
-                                                </div>
-                                                <input type="file" class="form-control" name="image"
-                                                       id="edit_image" required
-                                                       style="display:none">
-                                            </div>
+                                    <div class="file-field">
+                                        <div class="btn btn-primary btn-sm float-left">
+                                            <span>أضف شعار الشركة</span>
+                                            <input type="file" name="logo" class="form-control">
                                         </div>
+                                        <span class="error">{{$errors->first('logo')}}</span>
                                     </div>
+{{--                                    <div class="col-md-6 col-md-offset-3">--}}
+{{--                                        <div class="form-group {{ $errors->has('logo') ? ' has-error' : '' }}">--}}
+{{--                                            <div class="col-md-6 col-md-offset-3">--}}
+{{--                                                @if ($errors->has('logo'))--}}
+{{--                                                    <span class="help-block">--}}
+{{--                                                <strong>{{ $errors->first('logo') }}</strong>--}}
+{{--                                            </span>--}}
+{{--                                                @endif--}}
+{{--                                                <div class="fileinput-new thumbnail"--}}
+{{--                                                     onclick="document.getElementById('edit_image').click()"--}}
+{{--                                                     style="cursor:pointer">--}}
+{{--                                                    <img src=" {{url(asset('website/img/ChoosePhoto.png'))}}" id="editImage">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="btn red"--}}
+{{--                                                     onclick="document.getElementById('edit_image').click()">--}}
+{{--                                                    <i class="fa fa-pencil"></i>--}}
+{{--                                                </div>--}}
+{{--                                                <input type="file" class="form-control" name="image"--}}
+{{--                                                       id="edit_image" required--}}
+{{--                                                       style="display:none">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -288,7 +302,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <input type="submit" class="btnRegister"  value="Register"/>
+                                <input type="submit" class="btnRegister"  value="تسجيل"name="submit"/>
                             </div>
                         </div>
                     </div>
