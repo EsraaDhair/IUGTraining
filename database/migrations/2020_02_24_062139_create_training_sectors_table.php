@@ -16,8 +16,8 @@ class CreateTrainingSectorsTable extends Migration
         Schema::create('training_sectors', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('title');
-            $table->integer('#femaleStudents');
-            $table->integer('#maleStudents');
+            $table->integer('femaleStudentsNO');
+            $table->integer('maleStudentsNO');
             $table->integer('enterpriseId')->unsigned();
             $table->foreign('enterpriseId')->references('id')->on('enterprises');
             $table->timestamps();

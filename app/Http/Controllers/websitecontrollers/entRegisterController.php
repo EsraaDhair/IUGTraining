@@ -11,6 +11,7 @@ use App\User;
 use App\WorkTime;
 use Illuminate\Http\Request;
 use App\Traits\ImgaeUpload;
+use Illuminate\Support\Facades\DB;
 
 
 class entRegisterController extends Controller
@@ -36,7 +37,7 @@ class entRegisterController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->logo);
+//        dd($request->numOfMales);
         $validation = $request->validate($this->rules(), $this->messages());
         if ($validation) {
             $address = new Address();
@@ -63,43 +64,55 @@ class entRegisterController extends Controller
             $enterprise->mobile = $request->mobile;
             $enterprise->addressId = $address->id;
             $enterprise->save();
-            foreach ($request->chkBox as $chkBox){
-                foreach ($request->numOfMales as $males){
-                    foreach ($request->numOfFeMales as $females){
-                        foreach ($request->days as $day){
-                            foreach ($request->from as $from){
-                                foreach ($request->to as $to){
-                                    $training_sector = new TrainingSector();
-                                    $training_sector->title = $chkBox;
-                                    $training_sector->maleStudents = $males;
-                                    $training_sector->femaleStudents = $females;
-                                    $training_sector->enterpriseId = $enterprise->id;
-                            $training_sector->save();
-                                    $work_time = new WorkTime();
-                                    if ($day = 'saturday'){
-                                        $work_time->saturday = 1;
-                                    }elseif ($day = 'sunday'){
-                                        $work_time->sunday = 1;
-                                    }
-                                    elseif ($day = 'monday'){
-                                        $work_time->monday = 1;
-                                    }elseif ($day = 'tuesday'){
-                                        $work_time->tuesday = 1;
-                                    }elseif ($day = 'wednesday'){
-                                        $work_time->wednesday = 1;
-                                    }elseif ($day = 'thursday'){
-                                        $work_time->thursday = 1;
-                                    }
-                                    $work_time->startTime = $from;
-                                    $work_time->endTime = $to;
-                                    $work_time->training_sectorId = $training_sector->id;
-                                    $work_time->save();
-                                }
+
+            foreach ($request->chkBox as $chkBox) {
+                $training_sector = new TrainingSector();
+                foreach ($request->numOfMales as $males) {
+                    if(empty($males)){
+                        continue;
+                    }else {
+                        foreach ($request->numOfFeMales as $females) {
+                            if (empty($females)){
+                                continue;
+                            }else {
+                                $training_sector->title = $chkBox;
+                                $training_sector->femaleStudentsNO = $females;
+                                $training_sector->maleStudentsNO = $males;
+                                $training_sector->enterpriseId = $enterprise->id;
+                                $training_sector->save();
                             }
                         }
                     }
                 }
             }
+            foreach ($request->chkBox as $chkBox) {
+                foreach ($request->days as $day) {
+                    foreach ($request->from as $from) {
+                        foreach ($request->to as $to) {
+                            $work_time = new WorkTime();
+                            if ($day = 'saturday') {
+                                $work_time->saturday = 1;
+                            } elseif ($day = 'sunday') {
+                                $work_time->sunday = 1;
+                            } elseif ($day = 'monday') {
+                                $work_time->monday = 1;
+                            } elseif ($day = 'tuesday') {
+                                $work_time->tuesday = 1;
+                            } elseif ($day = 'wednesday') {
+                                $work_time->wednesday = 1;
+                            } elseif ($day = 'thursday') {
+                                $work_time->thursday = 1;
+                            }
+                            $work_time->startTime = $from;
+                            $work_time->endTime = $to;
+                            $training_sector = DB::table('training_sectors')->where('title', $chkBox)->first();
+                            $work_time->training_sectorId = $training_sector->id;
+                            $work_time->save();
+                        }
+                    }
+                }
+            }
+
             $user = new User();
             $user->name = $request->supName;
             $user->email = $request->email;

@@ -167,27 +167,27 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
@@ -209,27 +209,27 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
@@ -251,27 +251,27 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="chkBox"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
