@@ -15,4 +15,9 @@ class User extends Model
     protected $fillable = ['name', 'email', 'mobile'];
     protected $dates = ['created_at', 'updated_at'];
 
+    // Admin has many users
+    public function students(){
+        return $this->hasMany("App\Student");
+    }
+
 }

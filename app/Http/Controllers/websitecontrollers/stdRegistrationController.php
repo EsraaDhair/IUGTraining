@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\websitecontrollers;
 
 use App\Address;
+use App\Choices;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\Student;
@@ -33,7 +34,7 @@ class stdRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->sectors);
+//       dd($request->all());
         $validation = $request->validate($this->rules(), $this->messages());
         if ($validation) {
             $user = new User();
@@ -60,10 +61,16 @@ class stdRegistrationController extends Controller
             $training->studentId = $user->id;
             if (!empty($request->placeOfTraining)) {
                 $training->placeOfTraining = $request->placeOfTraining;
+                $training->sector=$request->choice;
             }
-            $training->sector = implode(',', $request->sectors);
+//            $training->sector = implode(',', $request->sectors);
             if($request->type=="general"){
                 $training->type='G';
+                $choices=new Choices();
+                $choices->first_choice=$request->choice1;
+                $choices->second_choice=$request->choice2;
+                $choices->stdID=$user->id;
+                $choices->save();
             }else if($request->type=="special"){
                 $training->type='S';
             }
@@ -83,7 +90,7 @@ class stdRegistrationController extends Controller
             'city'=>'required',
             'niche'=>'required',
             'street'=>'required',
-            'sectors'=>'required',
+//            'sectors'=>'required',
             'type'=>'required',
         ];
     }

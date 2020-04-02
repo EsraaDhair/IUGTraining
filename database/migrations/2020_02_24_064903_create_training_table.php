@@ -15,7 +15,7 @@ class CreateTrainingTable extends Migration
     {
         Schema::create('training', function (Blueprint $table) {
             $table->string('id',4);
-            $table->string('sector',191);
+            $table->string('sector',191)->nullable();
             $table->string('placeOfTraining',191)->nullable();
             $table->enum('type',['S','G']);
             $table->integer('enterpriseId')->unsigned()->nullable();
