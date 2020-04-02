@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.controlLayout.Layout');
+Route::group(['prefix' => 'controlpanel'], function () {
+    Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
+
 });
+
 Route::get('/student/create','websitecontrollers\stdRegistrationController@create')->name('std.create');
 Route::post('/student','websitecontrollers\stdRegistrationController@store')->name('std.store');
 

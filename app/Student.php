@@ -10,4 +10,9 @@ class Student extends Model
     protected $primaryKey = 'userId';
     protected $fillable = ['stdId','niche','endedHours','addressId'];
     protected $dates = ['created_at', 'updated_at'];
+
+    // User belongsTo Admin
+    public function admin(){
+        return $this->belongsTo("App\User");
+    }
 }
