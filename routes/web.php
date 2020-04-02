@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
     return view('website/home');
-=======
-    return view('layouts.controlLayout.Layout');
->>>>>>> 0cad3f9ebfe8de79272648a08c4404e397c32004
+//    return view('layouts.controlLayout.Layout');
 });
 Route::get('/student/create','websitecontrollers\stdRegistrationController@create')->name('std.create');
 Route::post('/student','websitecontrollers\stdRegistrationController@store')->name('std.store');
+
+Route::get('/enterprise/create','websitecontrollers\entRegisterController@create')->name('ent.create');
+Route::post('/enterprise','websitecontrollers\entRegisterController@store')->name('ent.store');
 
