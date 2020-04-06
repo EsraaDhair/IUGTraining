@@ -5,6 +5,7 @@ namespace App\Http\Controllers\websitecontrollers;
 use App\Address;
 use App\Enterprise;
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\Supervisor;
 use App\TrainingSector;
 use App\User;
@@ -37,7 +38,7 @@ class entRegisterController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->numOfMales);
+//        dd($request->all());
         $validation = $request->validate($this->rules(), $this->messages());
         if ($validation) {
             $address = new Address();
@@ -86,31 +87,36 @@ class entRegisterController extends Controller
                 }
             }
             foreach ($request->chkBox as $chkBox) {
-                foreach ($request->days as $day) {
-                    foreach ($request->from as $from) {
-                        foreach ($request->to as $to) {
-                            $work_time = new WorkTime();
-                            if ($day = 'saturday') {
-                                $work_time->saturday = 1;
-                            } elseif ($day = 'sunday') {
-                                $work_time->sunday = 1;
-                            } elseif ($day = 'monday') {
-                                $work_time->monday = 1;
-                            } elseif ($day = 'tuesday') {
-                                $work_time->tuesday = 1;
-                            } elseif ($day = 'wednesday') {
-                                $work_time->wednesday = 1;
-                            } elseif ($day = 'thursday') {
-                                $work_time->thursday = 1;
-                            }
-                            $work_time->startTime = $from;
-                            $work_time->endTime = $to;
-                            $training_sector = DB::table('training_sectors')->where('title', $chkBox)->first();
-                            $work_time->training_sectorId = $training_sector->id;
-                            $work_time->save();
-                        }
+                $work_time=new WorkTime();
+//                $new=$chkBox.'days';
+                $saturday=$chkBox.',saturday';
+                $sunday=$chkBox.',sunday';
+                $monday=$chkBox.',monday';
+                $tuesday=$chkBox.',tuesday';
+                $wednesday=$chkBox.',wednesday';
+                $thursday=$chkBox.',thursday';
+//                dd($request->$saturday);
+                    if ($request->has($saturday)) {
+                        $work_time->saturday = 1;
+                    } if ($request->has($sunday)) {
+                        $work_time->sunday = 1;
+                    }  if ($request->has($monday)) {
+                        $work_time->monday = 1;
+                    } if ($request->has($tuesday)) {
+                        $work_time->tuesday = 1;
+                    } if ($request->has($wednesday)) {
+                        $work_time->wednesday = 1;
+                    } if ($request->has($thursday)) {
+                        $work_time->thursday = 1;
                     }
-                }
+                $from=$chkBox.'from';
+                $to=$chkBox.'to';
+//                dd($request->$from);
+                $work_time->startTime = date("H:i:s A", strtotime($request->$from));;
+                $work_time->endTime = date("H:i:s A", strtotime($request->$to));
+                $training_sector = DB::table('training_sectors')->where('title', $chkBox)->first();
+                $work_time->training_sectorId = $training_sector->id;
+                $work_time->save();
             }
 
             $user = new User();
@@ -118,6 +124,10 @@ class entRegisterController extends Controller
             $user->email = $request->email;
             $user->mobile = $request->mobile;
             $user->save();
+            $role=new Role();
+            $role->userId=$user->id;
+            $role->type='supervisor';
+            $role->save();
             $supervisor = new Supervisor();
             $supervisor->jobTitle = $request->jobTitle;
             $supervisor->userId = $user->id;

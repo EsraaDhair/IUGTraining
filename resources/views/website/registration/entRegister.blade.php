@@ -125,35 +125,35 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="web,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="web,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="web,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="web,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="web,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="web,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt1">من</label>
-                                        <input type="time" id="appt1" name="from[]">
+                                        <input type="time" id="appt1" name="webfrom">
                                         <label for="appt2">إلي</label>
-                                        <input type="time" id="appt2" name="to[]">
+                                        <input type="time" id="appt2" name="webto">
                                     </td>
                                 </tr>
                                 <tr>
@@ -167,35 +167,35 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="design,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="design,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="design,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="design,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="design,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="design,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt3">من</label>
-                                        <input type="time" id="appt3" name="from[]">
+                                        <input type="time" id="appt3" name="designfrom">
                                         <label for="appt4">إلي</label>
-                                        <input type="time" id="appt4" name="to[]">
+                                        <input type="time" id="appt4" name="designto">
                                     </td>
                                 </tr>
                                 <tr>
@@ -209,35 +209,35 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="mobile,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="mobile,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="mobile,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="mobile,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="mobile,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="mobile,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt5">من</label>
-                                        <input type="time" id="appt5" name="from[]">
+                                        <input type="time" id="appt5" name="mobilefrom">
                                         <label for="appt6">إلي</label>
-                                        <input type="time" id="appt6" name="to[]">
+                                        <input type="time" id="appt6" name="mobileto">
                                     </td>
                                 </tr>
                                 <tr>
@@ -251,35 +251,35 @@
                                     <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="network,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="network,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="network,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="network,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="network,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="" name="days[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="network,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt7">من</label>
-                                        <input type="time" id="appt7" name="from[]">
+                                        <input type="time" id="appt7" name="networkfrom">
                                         <label for="appt8">إلي</label>
-                                        <input type="time" id="appt8" name="to[]">
+                                        <input type="time" id="appt8" name="networkto">
                                     </td>
                                 </tr>
                                 </tbody>
