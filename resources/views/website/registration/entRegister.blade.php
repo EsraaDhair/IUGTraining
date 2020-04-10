@@ -62,29 +62,6 @@
                                         </div>
                                         <span class="error">{{$errors->first('logo')}}</span>
                                     </div>
-{{--                                    <div class="col-md-6 col-md-offset-3">--}}
-{{--                                        <div class="form-group {{ $errors->has('logo') ? ' has-error' : '' }}">--}}
-{{--                                            <div class="col-md-6 col-md-offset-3">--}}
-{{--                                                @if ($errors->has('logo'))--}}
-{{--                                                    <span class="help-block">--}}
-{{--                                                <strong>{{ $errors->first('logo') }}</strong>--}}
-{{--                                            </span>--}}
-{{--                                                @endif--}}
-{{--                                                <div class="fileinput-new thumbnail"--}}
-{{--                                                     onclick="document.getElementById('edit_image').click()"--}}
-{{--                                                     style="cursor:pointer">--}}
-{{--                                                    <img src=" {{url(asset('website/img/ChoosePhoto.png'))}}" id="editImage">--}}
-{{--                                                </div>--}}
-{{--                                                <div class="btn red"--}}
-{{--                                                     onclick="document.getElementById('edit_image').click()">--}}
-{{--                                                    <i class="fa fa-pencil"></i>--}}
-{{--                                                </div>--}}
-{{--                                                <input type="file" class="form-control" name="image"--}}
-{{--                                                       id="edit_image" required--}}
-{{--                                                       style="display:none">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -121,8 +98,8 @@
                                         </label>
                                     </th>
                                     <td style="text-align: center;">Web</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfMales[]" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                             <input type="checkbox" class="checkboxes chkBox" value="saturday" name="web,saturday"/>
@@ -163,8 +140,8 @@
                                         </label>
                                     </th>
                                     <td style="text-align: center;">Design</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfMales[]" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="design,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="design,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                             <input type="checkbox" class="checkboxes chkBox" value="saturday" name="design,saturday"/>
@@ -205,8 +182,8 @@
                                         </label>
                                     </th>
                                     <td style="text-align: center;">Mobile</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfMales[]" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="mobile,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="mobile,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                             <input type="checkbox" class="checkboxes chkBox" value="saturday" name="mobile,saturday"/>
@@ -247,8 +224,8 @@
                                         </label>
                                     </th>
                                     <td style="text-align: center;">Network</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfMales[]" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="numOfFeMales[]" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="network,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="network,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                             <input type="checkbox" class="checkboxes chkBox" value="saturday" name="network,saturday"/>

@@ -21,7 +21,7 @@ class stdRegistrationController extends Controller
      */
     public function create()
     {
-        $sectors=['Web Development-frontEnd','Web Development-backEnd','Mobile-Android','Mobile-IOS','Graphic Design','Computer Network','Database','Animation'];
+        $sectors=['Web Development-frontEnd','Web Development-backEnd','Mobile-Android','Mobile-IOS','Graphic Design','Computer Network'];
         return view('website.registration.stdRegister',['sectors'=>$sectors]);
 
     }
@@ -67,8 +67,8 @@ class stdRegistrationController extends Controller
             if($request->type=="general"){
                 $training->type='G';
                 $choices=new Choices();
-                $choices->first_choice=$request->choice1;
-                $choices->second_choice=$request->choice2;
+                $choices->first_choice = $request->sectors[0];
+                $choices->second_choice = $request->sectors[1];
                 $choices->stdID=$user->id;
                 $choices->save();
             }else if($request->type=="special"){
