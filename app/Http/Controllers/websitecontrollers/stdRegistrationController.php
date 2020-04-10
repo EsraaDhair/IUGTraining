@@ -63,12 +63,11 @@ class stdRegistrationController extends Controller
                 $training->placeOfTraining = $request->placeOfTraining;
                 $training->sector=$request->choice;
             }
-//            $training->sector = implode(',', $request->sectors);
             if($request->type=="general"){
                 $training->type='G';
                 $choices=new Choices();
-                $choices->first_choice = $request->sectors[0];
-                $choices->second_choice = $request->sectors[1];
+                $choices->first_choice = $request->choice;
+                $choices->second_choice = $request->choice2;
                 $choices->stdID=$user->id;
                 $choices->save();
             }else if($request->type=="special"){
@@ -90,8 +89,8 @@ class stdRegistrationController extends Controller
             'city'=>'required',
             'niche'=>'required',
             'street'=>'required',
-//            'sectors'=>'required',
             'type'=>'required',
+            'choice'=>'required',
         ];
     }
     private function messages(){
@@ -105,7 +104,7 @@ class stdRegistrationController extends Controller
             'phone.unique'=>'تم إدخال هذا الرقم مسبقاً',
             'city.required'=>'يجب إدخال المدينة',
             'street.required'=>'يجب إدخال الشارع',
-            'sectors.required'=>'يجب اختيار مجال التدريب',
+            'choice.required'=>'يجب اختيار مجال التدريب',
             'niche.required'=>'يجب اختيار التخصص',
             'placeOfTraining.optional'=>'أدخل مكان التدريب',
             'type.required'=>'يجب اختيار نوع التدريب',
