@@ -36,5 +36,26 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-item start ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-folder"></i>
+                <span class="title">بيانات التدريب</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item start ">
+                    <a href="{{route('training.general')}}" class="nav-link ">
+                        <i class="fa fa-list"></i>
+                        <span class="title">العام</span>
+                    </a>
+                </li>
+                <li class="nav-item start ">
+                    <a href="" class="nav-link ">
+                        <i class="fa fa-list"></i>
+                        <span class="title">الخاص</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </div>

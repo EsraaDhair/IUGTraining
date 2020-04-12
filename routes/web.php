@@ -14,6 +14,8 @@
 
 Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
+    Route::get('/general/training','controlpanelcontrollers\TrainingController@getGeneralTrainingStudents')->name('training.general');
+    Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
 
 });
 
