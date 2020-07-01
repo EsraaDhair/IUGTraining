@@ -12,6 +12,7 @@
 */
 
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('website/home');
 //    return view('layouts.controlLayout.Layout');
@@ -21,6 +22,16 @@ Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
     Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
     Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
+=======
+Route::group(['prefix' => 'controlpanel'], function () {
+    Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
+    Route::get('/enterprises','controlpanelcontrollers\EnterpriseController@index')->name('enterprises.index');
+    Route::get('/general/training','controlpanelcontrollers\TrainingController@getGeneralTrainingStudents')->name('training.general');
+    Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
+    Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
+    Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
+
+>>>>>>> 1d6a05b743e78f0286938928d5065bf9ff8dbea5
 });
 
 Route::get('/student/create','websitecontrollers\stdRegistrationController@create')->name('std.create');

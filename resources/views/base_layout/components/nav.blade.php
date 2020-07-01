@@ -36,6 +36,7 @@
                 </li>
             </ul>
         </li>
+<<<<<<< HEAD
         {{--<?php--}}
         {{--$count_students = \App\Training::where('approved',0)->count();?>--}}
         {{--<li class="nav-item start ">--}}
@@ -56,5 +57,43 @@
                 {{--</li>--}}
             {{--</ul>--}}
         {{--</li>--}}
+=======
+        <li class="nav-item start ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-building"></i>
+                <span class="title">مؤسسات التدريب</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item start ">
+                    <a href="{{route('enterprises.index')}}" class="nav-link ">
+                        <i class="fa fa-list"></i>
+                        <span class="title">عرض</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item start ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-folder"></i>
+                <span class="title">بيانات التدريب</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item start ">
+                    <a href="{{route('training.general')}}" class="nav-link ">
+                        <i class="fa fa-list"></i>
+                        <span class="title">العام</span>
+                    </a>
+                </li>
+                <li class="nav-item start ">
+                    <a href="" class="nav-link ">
+                        <i class="fa fa-list"></i>
+                        <span class="title">الخاص</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+>>>>>>> 1d6a05b743e78f0286938928d5065bf9ff8dbea5
     </ul>
 </div>

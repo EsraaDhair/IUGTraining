@@ -15,14 +15,14 @@ class CreateWorkTimesTable extends Migration
     {
         Schema::create('work_times', function (Blueprint $table) {
             $table->Increments('id');
-            $table->dateTime('startTime');
-            $table->dateTime('endTime');
-            $table->boolean('saturday');
-            $table->boolean('sunday');
-            $table->boolean('monday');
-            $table->boolean('tuesday');
-            $table->boolean('wednesday');
-            $table->boolean('thursday');
+            $table->string('startTime');
+            $table->string('endTime');
+            $table->boolean('saturday')->default(0);
+            $table->boolean('sunday')->default(0);
+            $table->boolean('monday')->default(0);
+            $table->boolean('tuesday')->default(0);
+            $table->boolean('wednesday')->default(0);
+            $table->boolean('thursday')->default(0);
             $table->integer('training_sectorId')->unsigned();
             $table->foreign('training_sectorId')->references('id')->on('training_sectors');
             $table->timestamps();
