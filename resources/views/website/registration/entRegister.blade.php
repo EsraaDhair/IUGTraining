@@ -73,6 +73,33 @@
                                     <input type="text" class="form-control" placeholder="العنوان(الشارع)*" value="{{old('street')}}" name="street"/>
                                     <span class="error">{{$errors->first('street')}}</span>
                                 </div>
+                                <div class="col-md-12">
+                                    <p style="text-align: center">مجالات التدريب</p>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes chkBox" value="web front" name="web front" id="front"/>
+                                        <span>Web Front_end</span>
+                                    </label>
+                                   <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes chkBox" value="web back" name="web back" id="back"/>
+                                        <span>Web Back_end</span>
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes chkBox" value="android" name="android" id="android"/>
+                                        <span>Mobile - Android</span>
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes chkBox" value="ios" name="ios" id="ios"/>
+                                        <span>Mobile - IOS</span>
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes chkBox" value="graphic design" name="graphic design" id="design"/>
+                                        <span>Graphic Design</span>
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes chkBox" value="network" name="network" id="network"/>
+                                        <span>Computer Network</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,133 +118,217 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <tr id="Sfront" style="display:none">
                                     <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="web" name="chkBox[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="web_front" name="chkBox[]"/>
                                             <span></span>
                                         </label>
                                     </th>
-                                    <td style="text-align: center;">Web</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web,numOfMales" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web,numOfFeMales" /></td>
+                                    <td style="text-align: center;">Front_End</td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web_front,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web_front,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="web,saturday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="web_front,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="web,sunday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="web_front,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="web,monday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="web_front,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="web,tuesday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="web_front,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="web,wednesday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="web_front,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="web,thursday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="web_front,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt1">من</label>
-                                        <input type="time" id="appt1" name="webfrom">
+                                        <input type="time" id="appt1" name="web_frontfrom">
                                         <label for="appt2">إلي</label>
-                                        <input type="time" id="appt2" name="webto">
+                                        <input type="time" id="appt2" name="web_frontto">
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="Sback" style="display:none">
                                     <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="design" name="chkBox[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="web_back" name="chkBox[]"/>
                                             <span></span>
                                         </label>
                                     </th>
-                                    <td style="text-align: center;">Design</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="design,numOfMales" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="design,numOfFeMales" /></td>
+                                    <td style="text-align: center;">Back_End</td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web_back,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="web_back,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="design,saturday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="web_back,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="design,sunday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="web_back,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="design,monday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="web_back,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="design,tuesday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="web_back,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="design,wednesday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="web_back,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="design,thursday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="web_back,thursday"/>
+                                            <span>خميس</span>
+                                        </label>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <label for="appt1">من</label>
+                                        <input type="time" id="appt1" name="web_backfrom">
+                                        <label for="appt2">إلي</label>
+                                        <input type="time" id="appt2" name="web_backto">
+                                    </td>
+                                </tr>
+                                <tr id="Sdesign" style="display:none">
+                                    <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="graphic_design" name="chkBox[]"/>
+                                            <span></span>
+                                        </label>
+                                    </th>
+                                    <td style="text-align: center;">Graphic Design</td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="graphic_design,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="graphic_design,numOfFeMales" /></td>
+                                    <td style="text-align: center;">
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="graphic_design,saturday"/>
+                                            <span>سبت</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="graphic_design,sunday"/>
+                                            <span>أحد</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="graphic_design,monday"/>
+                                            <span>إثنين</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="graphic_design,tuesday"/>
+                                            <span>ثلاثاء</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="graphic_design,wednesday"/>
+                                            <span>اربعاء</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="graphic_design,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt3">من</label>
-                                        <input type="time" id="appt3" name="designfrom">
+                                        <input type="time" id="appt3" name="graphic_designfrom">
                                         <label for="appt4">إلي</label>
-                                        <input type="time" id="appt4" name="designto">
+                                        <input type="time" id="appt4" name="graphic_designto">
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="Sandroid" style="display:none">
                                     <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="mobile" name="chkBox[]"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="android" name="chkBox[]"/>
                                             <span></span>
                                         </label>
                                     </th>
-                                    <td style="text-align: center;">Mobile</td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="mobile,numOfMales" /></td>
-                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="mobile,numOfFeMales" /></td>
+                                    <td style="text-align: center;">Android</td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="android,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="android,numOfFeMales" /></td>
                                     <td style="text-align: center;">
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="mobile,saturday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="android,saturday"/>
                                             <span>سبت</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="mobile,sunday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="android,sunday"/>
                                             <span>أحد</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="mobile,monday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="android,monday"/>
                                             <span>إثنين</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
-                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="mobile,tuesday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="android,tuesday"/>
                                             <span>ثلاثاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="mobile,wednesday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="android,wednesday"/>
                                             <span>اربعاء</span>
                                         </label>
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="mobile,thursday"/>
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="android,thursday"/>
                                             <span>خميس</span>
                                         </label>
                                     </td>
                                     <td style="text-align: center;">
                                         <label for="appt5">من</label>
-                                        <input type="time" id="appt5" name="mobilefrom">
+                                        <input type="time" id="appt5" name="androidfrom">
                                         <label for="appt6">إلي</label>
-                                        <input type="time" id="appt6" name="mobileto">
+                                        <input type="time" id="appt6" name="androidto">
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="Sios" style="display:none">
+                                    <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="ios" name="chkBox[]"/>
+                                            <span></span>
+                                        </label>
+                                    </th>
+                                    <td style="text-align: center;">IOS</td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="ios,numOfMales" /></td>
+                                    <td style="text-align: center;"><input type="number" class="form-control" placeholder="" name="ios,numOfFeMales" /></td>
+                                    <td style="text-align: center;">
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="saturday" name="ios,saturday"/>
+                                            <span>سبت</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="sunday" name="ios,sunday"/>
+                                            <span>أحد</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="monday" name="ios,monday"/>
+                                            <span>إثنين</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" style="margin-right: 10px;">
+                                            <input type="checkbox" class="checkboxes chkBox" value="tuesday" name="ios,tuesday"/>
+                                            <span>ثلاثاء</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="wednesday" name="ios,wednesday"/>
+                                            <span>اربعاء</span>
+                                        </label>
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="checkboxes chkBox" value="thursday" name="ios,thursday"/>
+                                            <span>خميس</span>
+                                        </label>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <label for="appt5">من</label>
+                                        <input type="time" id="appt5" name="iosfrom">
+                                        <label for="appt6">إلي</label>
+                                        <input type="time" id="appt6" name="iosto">
+                                    </td>
+                                </tr>
+                                <tr id="Snetwork" style="display:none">
                                     <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                             <input type="checkbox" class="checkboxes chkBox" value="network" name="chkBox[]"/>
                                             <span></span>
@@ -288,4 +399,34 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <!-- JQUERY -->
+    <script src="{{asset('website/js/jquery-3.3.1.min.js')}}"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="{{asset('website/js/jquery.steps.js')}}"></script>
+    <script src="{{asset('website/js/main.js')}}"></script>
+    <script>
+        $('#front').change(function() {
+            $('#Sfront').toggle();
+        });
+        $('#back').change(function() {
+            $('#Sback').toggle();
+        });
+        $('#design').change(function() {
+            $('#Sdesign').toggle();
+        });
+        $('#android').change(function() {
+            $('#Sandroid').toggle();
+        });
+        $('#ios').change(function() {
+            $('#Sios').toggle();
+        });
+        $('#network').change(function() {
+            $('#Snetwork').toggle();
+        });
+
+    </script>
+
 @endsection

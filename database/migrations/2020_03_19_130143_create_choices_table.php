@@ -15,8 +15,8 @@ class CreateChoicesTable extends Migration
     {
         Schema::create('choices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_choice',100);
-            $table->string('second_choice',100);
+            $table->string('first_choice',100)->nullable();
+            $table->string('second_choice',100)->nullable();
             $table->integer('stdID')->unsigned();
             $table->foreign('stdID')->references('userId')->on('students');
             $table->timestamps();

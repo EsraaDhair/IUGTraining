@@ -14,8 +14,11 @@
 
 Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
+    Route::get('/enterprises','controlpanelcontrollers\EnterpriseController@index')->name('enterprises.index');
     Route::get('/general/training','controlpanelcontrollers\TrainingController@getGeneralTrainingStudents')->name('training.general');
     Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
+    Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
+    Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
 
 });
 

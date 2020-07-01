@@ -61,8 +61,8 @@ class entRegisterController extends Controller
 //                dd($request->$numOfMales);
                 $numOfFeMales=$chkBox.',numOfFeMales';
                 $training_sector->title = $chkBox;
-                $training_sector->femaleStudentsNO = $request->$numOfMales;
-                $training_sector->maleStudentsNO = $request->$numOfFeMales;
+                $training_sector->femaleStudentsNO = $request->$numOfFeMales;
+                $training_sector->maleStudentsNO = $request->$numOfMales;
                 $training_sector->enterpriseId = $enterprise->id;
                 $training_sector->save();
                 $work_time=new WorkTime();

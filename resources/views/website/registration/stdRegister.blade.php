@@ -115,11 +115,11 @@
                                         <p style="text-align: center">اختار الرغبة الأولى</p>
                                           <select class="form-control" name="choice"  size="3" id="choice">
                                             <option class="hidden"  selected disabled>مجال التدريب *</option>
-                                            <option value="web front" {{ old('choice') == "web front" ? 'selected' : '' }}>Web Development(Front-end)</option>
-                                            <option value="web back" {{ old('choice') == "web back" ? 'selected' : '' }}>Web Development(Back-end)</option>
+                                            <option value="web_front" {{ old('choice') == "web_front" ? 'selected' : '' }}>Web Development(Front-end)</option>
+                                            <option value="web_back" {{ old('choice') == "web_back" ? 'selected' : '' }}>Web Development(Back-end)</option>
                                             <option value="android" {{ old('choice') == "android" ? 'selected' : '' }}>Mobile(Android)</option>
                                             <option value="ios" {{ old('choice') == "ios" ? 'selected' : '' }}>Mobile(IOS)</option>
-                                            <option value="graphic design" {{ old('choice') == "graphic design" ? 'selected' : '' }}>Graphic Design</option>
+                                            <option value="graphic_design" {{ old('choice') == "graphic_design" ? 'selected' : '' }}>Graphic Design</option>
                                             <option value="network" {{ old('choice') == "network" ? 'selected' : '' }}>Computer Network</option>
                                         </select>
                                         <span class="error">{{$errors->first('choice')}}</span>
@@ -128,11 +128,11 @@
                                         <p style="text-align: center">اختار الرغبة الثانية</p>
                                         <select class="form-control" name="choice2" size="3" >
                                             <option class="hidden"  selected disabled>مجال التدريب *</option>
-                                            <option value="web front" {{ old('choice2') == "web front" ? 'selected' : '' }}>Web Development(Front-end)</option>
-                                            <option value="web back" {{ old('choice2') == "web back" ? 'selected' : '' }}>Web Development(Back-end)</option>
+                                            <option value="web_front" {{ old('choice2') == "web_front" ? 'selected' : '' }}>Web Development(Front-end)</option>
+                                            <option value="web_back" {{ old('choice2') == "web_back" ? 'selected' : '' }}>Web Development(Back-end)</option>
                                             <option value="android" {{ old('choice2') == "android" ? 'selected' : '' }}>Mobile(Android)</option>
                                             <option value="ios" {{ old('choice2') == "ios" ? 'selected' : '' }}>Mobile(IOS)</option>
-                                            <option value="graphic design" {{ old('choice2') == "graphic design" ? 'selected' : '' }}>Graphic Design</option>
+                                            <option value="graphic_design" {{ old('choice2') == "graphic_design" ? 'selected' : '' }}>Graphic Design</option>
                                             <option value="network" {{ old('choice2') == "network" ? 'selected' : '' }}>Computer Network</option>
                                         </select>
                                     </div>
