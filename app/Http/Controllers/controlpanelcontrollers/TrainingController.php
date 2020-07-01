@@ -2,32 +2,27 @@
 
 namespace App\Http\Controllers\controlpanelcontrollers;
 
-<<<<<<< HEAD
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 const STUDENT_PAGINATION = 10;
-=======
+
 use App\Enterprise;
-use App\Http\Controllers\Controller;
 use App\Training;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 const TRAINING_PAGINATION = 10;
->>>>>>> 1d6a05b743e78f0286938928d5065bf9ff8dbea5
 
 class TrainingController extends Controller
 {
     public function getSpecialTrainingStudents(){
-<<<<<<< HEAD
+
         $students = DB::table('users')
         ->join('training','users.id','=','training.studentId')
         ->where('type','=','S')
-        ->select('users.*','training.*');
+        ->select('users.*','training.*')->get();
         return view('base_layout.training.specialTraining',['students'=>$students]);
     }
-=======
->>>>>>> 1d6a05b743e78f0286938928d5065bf9ff8dbea5
+
 
     public function getApproved(Request $request){
         $students = DB::table('users')

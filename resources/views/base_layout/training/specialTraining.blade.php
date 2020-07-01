@@ -13,7 +13,6 @@
                 <thead class="flip-content">
                 </thead>
                 <tr>
-                    <th> # </th>
                     <th> الاسم </th>
                     <th> التخصص المختار </th>
                     <th> اسم الشركة </th>
@@ -22,7 +21,6 @@
                 <tbody>
                 @forelse ($students as $student)
                     <tr>
-                        <td> {{$loop->iteration}} </td>
                         <td> {{$student->name}}</td>
                         <td> {{$student->sector}}</td>
                         <td> {{$student->placeOfTraining}}</td>

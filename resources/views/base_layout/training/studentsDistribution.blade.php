@@ -11,7 +11,7 @@
                 <thead class="flip-content">
                 </thead>
                 <tr>
-{{--                    <th> # </th>--}}
+                    <th> # </th>
                     <th> الرقم الجامعي </th>
                     <th> اسم الطالب </th>
                     <th> مكان التدريب </th>
@@ -23,7 +23,7 @@
                 @forelse ($Training as $tr)
                     @foreach($tr['students'] as $student)
                         <tr>
-{{--                            <td> {{$loop->iteration}} </td>--}}
+                            <td> {{$loop->iteration}} </td>
                             <td> {{$student['student_id']}}</td>
                             <td> {{$student['student_name']}}</td>
                             <td> {{$tr['enterprise_name']}}</td>
