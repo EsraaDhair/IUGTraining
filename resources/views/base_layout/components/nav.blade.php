@@ -36,28 +36,6 @@
                 </li>
             </ul>
         </li>
-<<<<<<< HEAD
-        {{--<?php--}}
-        {{--$count_students = \App\Training::where('approved',0)->count();?>--}}
-        {{--<li class="nav-item start ">--}}
-            {{--<a href="javascript:;" class="nav-link nav-toggle">--}}
-                {{--<i class="fa fa-user"></i>--}}
-                {{--<span class="title">التدريب الخاص--}}
-                {{--@if($count_students>0)--}}
-                    {{--<span class="badge badge-danger">{{$count_students}}</span></span>--}}
-                {{--@endif--}}
-                {{--<span class="arrow"></span>--}}
-            {{--</a>--}}
-            {{--<ul class="sub-menu">--}}
-                {{--<li class="nav-item start ">--}}
-                    {{--<a href="{{route('special.getSpecialTrainingStudents')}}" class="nav-link ">--}}
-                        {{--<i class="fa fa-list"></i>--}}
-                        {{--<span class="title">عرض</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-            {{--</ul>--}}
-        {{--</li>--}}
-=======
         <li class="nav-item start ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="fa fa-building"></i>
@@ -94,6 +72,5 @@
                 </li>
             </ul>
         </li>
->>>>>>> 1d6a05b743e78f0286938928d5065bf9ff8dbea5
     </ul>
 </div>
