@@ -32,5 +32,23 @@
             </div>
         </div>
     </div>
-
+    <div class="info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
+                    <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
+                </div>
+                <div class="col-md-6">
+                    <h4>التدريب الميداني</h4>
+                    <hr>
+                    <p><br>يعد التدريب الميداني من أهم العوامل التي تساعد على تنمية مهارات
+                        <br> و خبرات الطالب الجامعي و تثبيت ما تعلمه خلال دراسته الجامعية، و هناك
+                        <br>بعض التخصصات التي تعتمد بشكل كبير على التدريب الميداني. منها:
+                       <br> الطب، أو الهندسة أو غيرها.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

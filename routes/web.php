@@ -24,6 +24,8 @@ Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
     Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
     Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
+    Route::get('/passwords/students','controlpanelcontrollers\StudentController@setPasswords')->name('passwords.students');
+    Route::get('/passwords/enterprises','controlpanelcontrollers\EnterpriseController@setPasswords')->name('passwords.enterprises');
     Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
     Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
 

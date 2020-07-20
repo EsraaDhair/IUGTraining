@@ -13,7 +13,7 @@ body{
     color: #04ADEB;
 }
 .slider{
-    height: 834px;
+    height: 469px;
 }
 .carousel-indicators{
     text-align: left;
@@ -161,6 +161,27 @@ footer{
     border-color: #c0392b transparent #c0392b transparent;
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+}
+.info .container-fluid{
+    background-color: #EBEBEB;
+    direction:ltr;
+}
+
+h4{
+    margin-top: 20px;
+    text-align: right;
+    color: #04ADEB;
+}
+hr{
+    border: 3px solid black;
+    width: 7%;
+    text-align: right;
+    margin-right: 0;
+    margin-top: 5px;
+}
+.info .container-fluid .row  p{
+  margin-top: -10px;
+  text-align: right;
 }
 
 .bottom_footer{
