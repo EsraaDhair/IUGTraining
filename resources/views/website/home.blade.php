@@ -36,17 +36,57 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
-                    <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
-                    <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
+                    <div class="button">
+                        <button type="button" class="btn btn-primary rounded-pill" onclick="window.location='{{ url("/enterprise/create") }}'" style="background-color: inherit; border:2px solid grey;  color: black; font-size: 20px">تسجيل كمؤسسة</button>
+                        <button type="button" class="btn btn-primary rounded-pill" onclick="window.location='{{ url("/student/create") }}'" style="background-color: #04ADEB; border:2px solid #04ADEB; font-size: 20px">تسجيل كطالب</button>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <h4>التدريب الميداني</h4>
                     <hr>
-                    <p><br>يعد التدريب الميداني من أهم العوامل التي تساعد على تنمية مهارات
+                    <p class="font-weight-bold"><br>يعد التدريب الميداني من أهم العوامل التي تساعد على تنمية مهارات
                         <br> و خبرات الطالب الجامعي و تثبيت ما تعلمه خلال دراسته الجامعية، و هناك
-                        <br>بعض التخصصات التي تعتمد بشكل كبير على التدريب الميداني. منها:
-                       <br> الطب، أو الهندسة أو غيرها.
+                      <br>:بعض التخصصات التي تعتمد بشكل كبير على التدريب الميداني. منها
+                        <br> .الطب، أو الهندسة أو غيرها
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="student">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                        <img src="{{asset('website/img/student.jpg')}}" class="rounded">
+                </div>
+                <div class="col-md-6">
+                    <h5>أبرز أهداف التدريب العملي للطلاب/للطالبات </h5>
+                    <div class="goals">
+                        <p><label>1</label>إتاحة الفرصة للطالب لكسب الخبرة العملية والتدريب قبل التخرج.</p>
+                        <p><label>2</label>تعميق فهم الطالب للعلوم النظرية التي تلقوها في مجال تخصصاتهم.</p>
+                        <p><label>3</label>تدريب الطالب على تحمل المسئولية والتقيد بالمواعيد.</p>
+                        <p><label>4</label>تدريب الطالب على الاحتكاك بالآخرين والاستماع إلى آرائهم.</p>
+                        <p><label>5</label>معرفة مدى الإستفادة من الطالب المتدرب وتوظيفه بعد تخرجه.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="enterprises">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>الشركات المحتضنة</h2>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @forelse ($enterprises as $en)
+                            <img src="{{$en->logo}}">
+                        @empty
+                            <h3 style="text-align: center; font-size: 30px">لا يوجد شركات مسجلة</h3>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,10 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('website/home');
-//    return view('layouts.controlLayout.Layout');
-});
+Route::get('/', 'websitecontrollers\homeController@index');
 
 Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');

@@ -19,8 +19,8 @@
                 </div>
             </div>
         </div>
-        <section class="container-fluid sec-footer">
-            <div class="container">
+        <section class="sec-footer">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col">
                         <div class="card desc-box">
