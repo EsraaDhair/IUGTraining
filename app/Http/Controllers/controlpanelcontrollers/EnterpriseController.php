@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\controlpanelcontrollers;
 
 use App\Http\Controllers\Controller;
+use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 const ENTERPRISE_PAGINATION = 10;
+=======
+use Illuminate\Support\Str;
+>>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
 
 class EnterpriseController extends Controller
 {
@@ -41,5 +46,19 @@ class EnterpriseController extends Controller
             $sectors[$i++]=$se->title;
         }
         return $sectors;
+    }
+    public function setPasswords(){
+        $supervisors = DB::table('users')
+            ->join('supervisors', 'users.id', '=', 'supervisors.userId')
+            ->select('users.*', 'supervisors.*')->get();
+        foreach ($supervisors as $supervisor){
+            $password = new Password();
+            $password->userId = $supervisor->userId ;
+            $stdPassword =str::random(4). substr($supervisor->mobile,-4);
+            $password->password = $stdPassword;
+            $password->save();
+        }
+        return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
+
     }
 }

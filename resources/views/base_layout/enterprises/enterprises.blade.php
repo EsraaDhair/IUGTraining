@@ -1,4 +1,13 @@
 @extends('base_layout._layout')
+@section('style')
+    <style>
+        #button{
+            float: left;
+            margin-bottom: 20px;
+            width: 15%;
+        }
+    </style>
+@endsection
 @section('body')
     <!-- BEGIN SAMPLE TABLE PORTLET-->
     <div class="portlet box green">
@@ -7,6 +16,7 @@
                 <i class="fa fa-cogs"></i>بيانات المؤسسات المسجلة في التدريب </div>
         </div>
         <div class="portlet-body flip-scroll">
+<<<<<<< HEAD
             <div class="col-md-12">
                 <div class="panel panel-success">
                     <div class="panel-heading"><i class="fa fa-search"></i>البحث</div>
@@ -24,6 +34,9 @@
                     </div>
                 </div>
             </div>
+=======
+            <a type="button" class="btn green btn-outline" id="button" href="{{route('passwords.enterprises')}}"> تعيين كلمات سر المشرفين</a>
+>>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
             <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                 </thead>

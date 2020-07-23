@@ -13,7 +13,7 @@ body{
     color: #04ADEB;
 }
 .slider{
-    height: 834px;
+    height: 469px;
 }
 .carousel-indicators{
     text-align: left;
@@ -162,7 +162,94 @@ footer{
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
 }
+.info .container-fluid{
+    background-color: #EBEBEB;
+    direction:ltr;
+}
 
+h4{
+    margin-top: 20px;
+    text-align: right;
+    color: #04ADEB;
+    margin-right: 100px;
+}
+.info .container-fluid .row .col-md-6 hr{
+    border: 3px solid black;
+    width: 7%;
+    margin-top: 15px;
+    margin-right: 100px;
+}
+.info .container-fluid .row .col-md-6 p{
+  margin-top: -20px;
+  text-align: right;
+  margin-right: 100px;
+  font-size: 23px;
+}
+.button{
+    margin-top: 100px;
+    margin-left: 200px;
+}
+.info .container-fluid .row .col-md-6 .button button{
+    padding: 7px 32px;
+}
+.student{
+    margin: 40px;
+}
+
+.student .container-fluid .row .col-md-6 img{
+    width: 200px;
+    height: 300px;
+    float: right;
+    margin-right: 150px;
+    display: block;
+    background: transparent;
+    padding: 8px;
+    border: 5px solid #5badbb;
+    box-shadow: 10px 10px 10px #999;
+}
+.student .container-fluid .row .col-md-6 h5{
+    float: right;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.student .container-fluid .row .col-md-6 .goals{
+    float: right;
+}
+.student .container-fluid .row .col-md-6 .goals p {
+    width: 600px;
+    background-color: #5badbb;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+.student .container-fluid .row .col-md-6 .goals p label{
+    float: right;
+    width: 35px;
+    height: 30px;
+    background-color: #ebebeb;
+    color: #31808e;
+    text-align: center;
+    font-size: 20px;
+}
+.enterprises .container-fluid{
+    background-color: #EBEBEB;
+}
+.enterprises .container-fluid .row .col-md-12 h2{
+    margin-top: 15px;
+    text-align: center;
+}
+.enterprises .container-fluid .row .col-md-12 hr{
+    border: 3px solid black;
+    width: 5%;
+    margin-top: 20px;
+}
+.enterprises .container-fluid .row .col-md-12 img{
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+}
 .bottom_footer{
     border-top:1px solid rgba(216,216,216,0.2);
     padding: 10px 0;

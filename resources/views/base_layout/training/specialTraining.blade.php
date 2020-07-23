@@ -38,7 +38,7 @@
                 </tbody>
             </table>
             <div class="form-group" style="text-align: left">
-                <input value="إرسال" name="submit" type="submit">
+                <input class="btn green btn-outline" value="إرسال" name="submit" type="submit">
             </div>
 
         </div>

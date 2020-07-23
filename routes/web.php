@@ -12,10 +12,14 @@
 */
 
 
+<<<<<<< HEAD
 Route::get('/','HomeController@home')->name('home');
 Route::get('/Training/manual',function (){
     return view('website.Training_manual');
 })->name('Training.manual');
+=======
+Route::get('/', 'websitecontrollers\homeController@index');
+>>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
 
 Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
@@ -24,9 +28,14 @@ Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
     Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
     Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
+<<<<<<< HEAD
 
 
 
+=======
+    Route::get('/passwords/students','controlpanelcontrollers\StudentController@setPasswords')->name('passwords.students');
+    Route::get('/passwords/enterprises','controlpanelcontrollers\EnterpriseController@setPasswords')->name('passwords.enterprises');
+>>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
     Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
     Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
     Route::get('/slider','controlpanelcontrollers\SliderController@index')->name('slider.index');
