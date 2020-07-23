@@ -5,19 +5,26 @@ namespace App\Http\Controllers\controlpanelcontrollers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+const ENTERPRISE_PAGINATION = 10;
 
 class EnterpriseController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $enterprises=DB::table('enterprises')
+            ->where([])
             ->join('address','enterprises.addressId','=','address.id')
             ->join('supervisors', 'enterprises.id', '=', 'supervisors.enterpriseId')
             ->join('users', 'supervisors.userId', '=', 'users.id')
-            ->select('enterprises.*','address.city','users.name as supervisor')
-            ->get();
+            ->select('enterprises.*','address.city','users.name as supervisor');
+
+        if($request->has('name'))
+            $enterprises=$enterprises->where('enterprises.name','like','%'.$request->input('name').'%');
+        $enterprises=$enterprises->paginate(ENTERPRISE_PAGINATION);
+
         foreach ($enterprises as $en){
             $en->sectors= $this->getEnterpriseSectors($en->id);
         }
+
         return view('base_layout.enterprises.enterprises',['enterprises'=>$enterprises]);
 
     }

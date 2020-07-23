@@ -7,6 +7,23 @@
                 <i class="fa fa-cogs"></i>بيانات المؤسسات المسجلة في التدريب </div>
         </div>
         <div class="portlet-body flip-scroll">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading"><i class="fa fa-search"></i>البحث</div>
+                    <div class="panel-body">
+                        <form action="{{route('enterprises.index')}}" method="get">
+                            <div class=" form-group col-sm-4">
+                                <label for="name">الاسم</label>
+                                <input type="text" name="name" value="{{app('request')->get('name')}}">
+                            </div>
+                            <div class=" form-group col-md-12">
+                                <input type="submit" value="بحث" class="btn btn-primary">
+                                <a class=" btn btn-default" href="{{route('enterprises.index')}}">إلغاء</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                 </thead>
@@ -32,7 +49,7 @@
                         <td> {{$en->city}}</td>
                     </tr>
                 @empty
-                    <td colspan="6">لا يوجد مؤسسات مسجلة</td>
+                    <td colspan="7">لا يوجد مؤسسات مسجلة</td>
                 @endforelse
                 </tbody>
             </table>

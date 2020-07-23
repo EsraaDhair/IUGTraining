@@ -64,10 +64,36 @@
                         <span class="title">العام</span>
                     </a>
                 </li>
+            <?php
+            $count_students = \App\Training::where('approved',0)->count();?>
                 <li class="nav-item start ">
-                    <a href="" class="nav-link ">
+                    <a href="{{route('special.getSpecialTrainingStudents')}}" class="nav-link ">
                         <i class="fa fa-list"></i>
-                        <span class="title">الخاص</span>
+                        <span class="title">
+                            الخاص@if($count_students>0)
+                            <span class="badge badge-danger">{{$count_students}}</span></span>
+                            @endif</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item start ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-sliders"></i>
+                <span class="title">شرائح العرض</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item start ">
+                    <a href="{{route('slider.index')}}" class="nav-link ">
+                        <i class="fa fa-list"></i>
+                        <span class="title">عرض</span>
+                    </a>
+                </li>
+                <li class="nav-item start ">
+                    <a href="{{route('slider.create')}}" class="nav-link ">
+                        <i class="fa fa-plus"></i>
+                        <span class="title">إضافة</span>
                     </a>
                 </li>
             </ul>

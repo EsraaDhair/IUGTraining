@@ -7,6 +7,33 @@
                 <i class="fa fa-cogs"></i> نتائج توزيع طلبة التدريب الميداني العام </div>
         </div>
         <div class="portlet-body flip-scroll">
+            <div class="btn-group" style="margin-bottom: 12px;">
+                <a class="btn green" href="javascript:;" data-toggle="dropdown">
+                    <i class="fa fa-file"></i>    تصدير بيانات التدريب
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a  href="{{route('export.students',['city'=>'Rafah'])}}">
+                            <i class="fa fa-building"></i> رفح </a>
+                    </li>
+                    <li>
+                        <a href="{{route('export.students',['city'=>'khan Yonis'])}}">
+                            <i class="fa fa-building-o"></i> خانيونس </a>
+                    </li>
+                    <li>
+                        <a href="{{route('export.students',['city'=>'middle'])}}">
+                            <i class="fa fa-building"></i> الوسطى </a>
+                    </li>
+                    <li>
+                        <a href="{{route('export.students',['city'=>'Gaza'])}}">
+                            <i class="fa fa-building-o"></i> غزة </a>
+                    </li> <li>
+                        <a href="{{route('export.students',['city'=>'north'])}}">
+                            <i class="fa fa-building"></i> الشمال </a>
+                    </li>
+                </ul>
+            </div>
             <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                 </thead>
@@ -25,8 +52,8 @@
                         <tr>
 {{--                            <td> {{$loop->iteration}} </td>--}}
                             <td> {{$student['student_id']}}</td>
-                            <td> {{$student['student_name']}}</td>
-                            <td> {{$tr['enterprise_name']}}</td>
+                            <td><a href="{{route('students.index')}}">{{$student['student_name']}}</a> </td>
+                            <td> <a href="{{route('enterprises.index')}}">{{$tr['enterprise_name']}}</a></td>
                             <td> {{$tr['sector']}}</td>
                             <td> {{$tr['enterprise_city']}}</td>
                         </tr>

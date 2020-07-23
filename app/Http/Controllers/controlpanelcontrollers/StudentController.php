@@ -9,11 +9,17 @@ const STUDENT_PAGINATION = 10;
 
 class StudentController extends Controller
 {
-    public function index(){
-        $students = DB::table('users')
+    public function index(Request $request){
+        $students=DB::table('users')
+            ->where([])
             ->join('students', 'users.id', '=', 'students.userId')
-            ->select('users.*', 'students.*')
-            ->paginate(STUDENT_PAGINATION);
+            ->select('users.*', 'students.*');
+        if($request->has('name'))
+            $students=$students->where('name','like','%'.$request->input('name').'%');
+        if($request->has('stdId'))
+            $students=$students->where('stdId','like','%'.$request->input('stdId').'%');
+        $students=$students->paginate(STUDENT_PAGINATION);
+
         foreach ($students as $student){
             if($student->niche=='SD'){
                 $student->niche="تطوير برمجيات";
@@ -24,7 +30,7 @@ class StudentController extends Controller
             }else if($student->niche=='IS'){
                 $student->niche="نظم تكنولوجيا المعلومات";
             }else if($student->niche=='MO'){
-                $student->niche="الحوسبة المتنقلة و و تطبيقات الأجهزة الذكية";
+                $student->niche="الحوسبة المتنقلة و تطبيقات الأجهزة الذكية";
             }
         }
         return view('base_layout.students.studentsList',['students'=>$students]);

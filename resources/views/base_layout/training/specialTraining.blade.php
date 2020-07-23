@@ -13,7 +13,6 @@
                 <thead class="flip-content">
                 </thead>
                 <tr>
-                    <th> # </th>
                     <th> الاسم </th>
                     <th> التخصص المختار </th>
                     <th> اسم الشركة </th>
@@ -22,11 +21,11 @@
                 <tbody>
                 @forelse ($students as $student)
                     <tr>
-                        <td> {{$loop->iteration}} </td>
                         <td> {{$student->name}}</td>
                         <td> {{$student->sector}}</td>
                         <td> {{$student->placeOfTraining}}</td>
-                        <th scope="row"> <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                        <th scope="row">
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                 <input type="checkbox" class="checkboxes chkBox" value="{{$student->id}}" name="chkBox" {{($student->approved==1 ? ' checked' : '')}} />
                                 <span></span>
                             </label>

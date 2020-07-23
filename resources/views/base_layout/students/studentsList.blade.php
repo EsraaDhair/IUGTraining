@@ -7,6 +7,27 @@
                 <i class="fa fa-cogs"></i>بيانات الطلبة المسجلين في التدريب </div>
         </div>
         <div class="portlet-body flip-scroll">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading"><i class="fa fa-search"></i>البحث</div>
+                    <div class="panel-body">
+                        <form action="{{route('students.index')}}" method="get">
+                            <div class=" form-group col-sm-4">
+                                <label for="name">الاسم</label>
+                                <input type="text" name="name" value="{{app('request')->get('name')}}">
+                            </div>
+                            <div class=" form-group col-sm-4">
+                                <label for="stdId">الرقم الجامعي</label>
+                                <input type="text" name="stdId" value="{{app('request')->get('stdId')}}" maxlength="9">
+                            </div>
+                            <div class=" form-group col-md-12">
+                                <input type="submit" value="بحث" class="btn btn-primary">
+                                <a class=" btn btn-default" href="{{route('students.index')}}">إلغاء</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                 </thead>

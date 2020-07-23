@@ -1,36 +1,26 @@
 @extends('website.base_layout')
 @section('content')
-    <div class="slider">
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+{{--    <div class="slider">--}}
+{{--        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">--}}
+{{--            <div class="carousel-inner">--}}
+{{--        @foreach($sliders as $slider)--}}
+{{--                    <div class="carousel-item active">--}}
+{{--                        <img src="{{asset($slider->image)}}" class="d-block w-100" alt="...">--}}
+{{--                        <div class="carousel-caption d-none d-md-block">--}}
+{{--                            <h5>{{$slider->title}}</h5>--}}
+{{--                            <p>{{$slider->subTitle}}</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--        @endforeach--}}
+{{--        </div>--}}
+{{--        <!-- Left and right controls -->--}}
+{{--        <a class="left carousel-control" href="#carouselExampleCaptions" data-slide="prev">--}}
+{{--            <span class="glyphicon glyphicon-chevron-left"></span>--}}
+{{--            <span class="sr-only">Previous</span>--}}
+{{--        </a>--}}
+{{--        <a class="right carousel-control" href="#carouselExampleCaptions" data-slide="next">--}}
+{{--            <span class="glyphicon glyphicon-chevron-right"></span>--}}
+{{--            <span class="sr-only">Next</span>--}}
+{{--        </a>--}}
+{{--    </div>--}}
 @endsection

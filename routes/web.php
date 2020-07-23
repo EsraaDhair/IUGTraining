@@ -12,20 +12,37 @@
 */
 
 
-Route::get('/', function () {
-    return view('website/home');
-//    return view('layouts.controlLayout.Layout');
-});
+Route::get('/','HomeController@home')->name('home');
+Route::get('/Training/manual',function (){
+    return view('website.Training_manual');
+})->name('Training.manual');
 
 Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
     Route::get('/enterprises','controlpanelcontrollers\EnterpriseController@index')->name('enterprises.index');
     Route::get('/general/training','controlpanelcontrollers\TrainingController@getGeneralTrainingStudents')->name('training.general');
-    Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
-    Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
-    Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
     Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
     Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
+    Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
+
+
+
+    Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
+    Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
+    Route::get('/slider','controlpanelcontrollers\SliderController@index')->name('slider.index');
+
+    Route::get('slider/destroy/{id}','controlpanelcontrollers\SliderController@destroy')->name('slider.destroy');
+    Route::get('slider/edit/{id}', 'controlpanelcontrollers\SliderController@edit')->name('slider.edit');
+    Route::put('slider/update/{id}', 'controlpanelcontrollers\SliderController@update')->name('slider.update');
+
+
+//    Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
+//    Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
+
+    Route::get('export/students/{city}', 'controlpanelcontrollers\ImportExportController@export')->name('export.students');
+    Route::get('importView', 'controlpanelcontrollers\ImportExportController@importView');
+    Route::post('import/students', 'controlpanelcontrollers\ImportExportController@import')->name('import.students');
+
 
 });
 Route::get('/student/create','websitecontrollers\stdRegistrationController@create')->name('std.create');
