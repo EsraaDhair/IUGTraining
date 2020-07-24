@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
     public function home(){
         $sliders=Slider::all()->where('active','=',1);
-        return view('website/home',['sliders'=>$sliders]);
+        $enterprises=DB::table('enterprises')->select('enterprises.*')->get();
+        return view('website.home',['sliders'=>$sliders , 'enterprises'=>$enterprises]);
     }
 }

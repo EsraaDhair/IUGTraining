@@ -1,6 +1,5 @@
 @extends('website.base_layout')
 @section('content')
-<<<<<<< HEAD
 {{--    <div class="slider">--}}
 {{--        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">--}}
 {{--            <div class="carousel-inner">--}}
@@ -24,7 +23,6 @@
 {{--            <span class="sr-only">Next</span>--}}
 {{--        </a>--}}
 {{--    </div>--}}
-=======
     <div class="slider">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -116,5 +114,4 @@
             </div>
         </div>
     </div>
->>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
 @endsection
