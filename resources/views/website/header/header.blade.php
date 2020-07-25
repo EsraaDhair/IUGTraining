@@ -10,10 +10,7 @@
                 <a class="nav-link" href="{{route('Training.manual')}}">دليل التدريب</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">لجنة التدريب</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">الشركات</a>
+                <a class="nav-link" href="{{route('Training.committee')}}">لجنة التدريب</a>
             </li>
         </ul>
         <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
