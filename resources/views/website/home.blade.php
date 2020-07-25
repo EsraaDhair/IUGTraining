@@ -1,30 +1,5 @@
 @extends('website.base_layout')
 @section('content')
-<<<<<<< HEAD
-{{--    <div class="slider">--}}
-{{--        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">--}}
-{{--            <div class="carousel-inner">--}}
-{{--        @foreach($sliders as $slider)--}}
-{{--                    <div class="carousel-item active">--}}
-{{--                        <img src="{{asset($slider->image)}}" class="d-block w-100" alt="...">--}}
-{{--                        <div class="carousel-caption d-none d-md-block">--}}
-{{--                            <h5>{{$slider->title}}</h5>--}}
-{{--                            <p>{{$slider->subTitle}}</p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--        @endforeach--}}
-{{--        </div>--}}
-{{--        <!-- Left and right controls -->--}}
-{{--        <a class="left carousel-control" href="#carouselExampleCaptions" data-slide="prev">--}}
-{{--            <span class="glyphicon glyphicon-chevron-left"></span>--}}
-{{--            <span class="sr-only">Previous</span>--}}
-{{--        </a>--}}
-{{--        <a class="right carousel-control" href="#carouselExampleCaptions" data-slide="next">--}}
-{{--            <span class="glyphicon glyphicon-chevron-right"></span>--}}
-{{--            <span class="sr-only">Next</span>--}}
-{{--        </a>--}}
-{{--    </div>--}}
-=======
     <div class="slider">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -70,9 +45,9 @@
                     <h4>التدريب الميداني</h4>
                     <hr>
                     <p class="font-weight-bold"><br>يعد التدريب الميداني من أهم العوامل التي تساعد على تنمية مهارات
-                        <br> و خبرات الطالب الجامعي و تثبيت ما تعلمه خلال دراسته الجامعية، و هناك
-                      <br>:بعض التخصصات التي تعتمد بشكل كبير على التدريب الميداني. منها
-                        <br> .الطب، أو الهندسة أو غيرها
+                         و خبرات الطالب الجامعي و تثبيت ما تعلمه خلال دراسته الجامعية، و هناك
+                      بعض التخصصات التي تعتمد بشكل كبير على التدريب الميداني، منها:
+                         الطب أو الهندسة أو غيرها
                     </p>
                 </div>
             </div>
@@ -82,7 +57,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
-                        <img src="{{asset('website/img/student.jpg')}}" class="rounded">
+                        <img src="{{asset('website/img/lap1.jpg')}}" class="rounded">
                 </div>
                 <div class="col-md-6">
                     <h5>أبرز أهداف التدريب العملي للطلاب/للطالبات </h5>
@@ -97,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div class="enterprises">
+    <div class="enterprises m-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -105,7 +80,7 @@
                     <hr>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 text-center">
                         @forelse ($enterprises as $en)
                             <img src="{{$en->logo}}">
                         @empty
@@ -116,5 +91,4 @@
             </div>
         </div>
     </div>
->>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
 @endsection
