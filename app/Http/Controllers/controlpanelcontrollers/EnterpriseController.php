@@ -6,11 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
+
 const ENTERPRISE_PAGINATION = 10;
-=======
+
 use Illuminate\Support\Str;
->>>>>>> 6d84b380018b4a84999b99e91edf2194b6a87b9d
 
 class EnterpriseController extends Controller
 {

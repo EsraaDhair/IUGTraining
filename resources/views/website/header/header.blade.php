@@ -13,6 +13,6 @@
                 <a class="nav-link" href="{{route('Training.committee')}}">لجنة التدريب</a>
             </li>
         </ul>
-        <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
+        <button type="button" class="btn btn-primary btn-sm rounded-pill" onclick="window.location='{{ url("/home") }}'">تسجيل دخول</button>
     </div>
 </div>
