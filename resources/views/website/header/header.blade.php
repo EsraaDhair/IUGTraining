@@ -12,6 +12,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('Training.committee')}}">لجنة التدريب</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('contact.us')}}">التواصل معنا</a>
+            </li>
         </ul>
         <button type="button" class="btn btn-primary btn-sm rounded-pill">تسجيل دخول</button>
     </div>

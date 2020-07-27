@@ -9,6 +9,7 @@
                 <i class="fa fa-cogs"></i>بيانات طلبة التدريب الخاص </div>
         </div>
         <div class="portlet-body flip-scroll">
+            <a type="button" class="btn green btn-outline" id="button" href="{{route('passwords.students',['type'=>'S'])}}"> تعيين كلمات سر الطلبة</a>
             <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                 </thead>

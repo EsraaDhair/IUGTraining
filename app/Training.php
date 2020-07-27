@@ -8,6 +8,6 @@ class Training extends Model
 {
     protected $table = 'training';
     protected $primaryKey = 'id';
-    protected $fillable = ['sector','type','enterpriseId','studentId','approved','placeOfTraining',];
+    protected $fillable = ['id','sector','type','enterpriseId','studentId','approved','placeOfTraining',];
     protected $dates = ['created_at', 'updated_at'];
 }

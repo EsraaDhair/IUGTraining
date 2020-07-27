@@ -5,8 +5,12 @@ namespace App\Http\Controllers\controlpanelcontrollers;
 
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewPassword;
+use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 const STUDENT_PAGINATION = 10;
 const TRAINING_PAGINATION = 10;
 
@@ -204,6 +208,25 @@ class TrainingController extends Controller
         return view('base_layout.training.studentsDistribution',['Training'=>$distTemp2]);
     }
 
+    // set password randomly ( 6 length)
+    public function setPasswords($type){
+        $students = DB::table('users')
+            -> join('training','users.id','=','training.studentId')
+            ->join('students', 'users.id', '=', 'students.userId')
+            ->where('type','=',$type)
+            ->select('users.*', 'students.*')->get();
+        foreach ($students as $student){
+            $password = new Password();
+            $password->userId = $student->userId ;
+            $password->password = str::random(6);
+            Mail::to($student->email)->send(new NewPassword($password->password));
+            $password->save();
+            sleep(1);
+        }
+
+        return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
+
+    }
     private function readGeneralTrainingInfo(){
         $gTrainings= DB::table('training')
             ->where('training.type','=','G')

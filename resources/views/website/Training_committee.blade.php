@@ -142,12 +142,12 @@
     <div id="demo" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{asset('website/img/team.jpg')}}" alt="" class="img-fluid rounded opacity" />
+                <img src="{{asset('website/img/header.jpg')}}" alt="" class="img-fluid" />
                 <div class="carousel-caption">
-                    <p class="lead position-text color" style="font-size: 2rem;">
-                        <i class="fa fa-angle-right fa-rotate-right "></i>
+                    <p class="lead" style="font-size: 3rem;">
+                        <i class="fa fa-angle-right"></i>
                         لجنة العلاقات الخارجية والتدريب
-                        <i class="fa fa-angle-left fa-rotate-left text-dark"></i>
+                        <i class="fa fa-angle-left text-dark"></i>
                     </p>
                 </div>
             </div>

@@ -23,6 +23,7 @@ class TrainingImport implements ToModel ,WithHeadingRow
     */
     public function model(array $row)
     {
+            dd($row);
         $user = new User();
         $user->name =$row['name'];
         $user->email = $row['email'];
@@ -60,6 +61,7 @@ class TrainingImport implements ToModel ,WithHeadingRow
             $choices->first_choice = $row['choice'];
             $choices->stdID=$user->id;
             $choices->save();
+//            dd($id);
             $training= new Training([
                 'id' => $id,
                 'studentId' => $user->id,

@@ -13,8 +13,8 @@
                 </div>
                 <div class="f_col_left clearfix">
                     <ul class="f_menu clearfix">
-                        <li><a href="">لجنة التدريب</a></li>
-                        <li><a href="">الشركات</a></li>
+                        <li><a href="{{route('Training.committee')}}">لجنة التدريب</a></li>
+                        <li><a href="{{route('contact.us')}}">التواصل معنا</a></li>
                     </ul>
                 </div>
             </div>

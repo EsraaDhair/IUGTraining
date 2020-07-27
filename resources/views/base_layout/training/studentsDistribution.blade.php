@@ -34,6 +34,7 @@
                     </li>
                 </ul>
             </div>
+            <a type="button" class="btn green btn-outline" id="button" href="{{route('passwords.students',['type'=>'G'])}}"> تعيين كلمات سر الطلبة</a>
             <table class="table table-bordered table-striped table-condensed flip-content">
                 <thead class="flip-content">
                 </thead>

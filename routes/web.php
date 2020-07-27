@@ -12,23 +12,22 @@
 */
 
 
-<<<<<<< HEAD
 
-Route::get('/Training/manual',function (){
-    return view('website.Training_manual');
-})->name('Training.manual');
+
 
 Route::get('/', 'websitecontrollers\homeController@index')->name('home');
 
-=======
-Route::get('/','HomeController@home')->name('home');
+
 Route::get('/Training/manual',function (){
     return view('website.Training_manual');
 })->name('Training.manual');
 Route::get('/Training/committee',function (){
     return view('website.Training_committee');
 })->name('Training.committee');
->>>>>>> 2604c2d2c5f1cf9afd7a13b4f9afaee1ec91026f
+Route::get('/Contact/Us',function (){
+    return view('website.contactus');
+})->name('contact.us');
+
 
 Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
@@ -37,19 +36,10 @@ Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
     Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
     Route::get('/distribute/students','controlpanelcontrollers\TrainingController@distributeStudents')->name('distribute.students');
-<<<<<<< HEAD
 
-
-
-
-
-    Route::get('/passwords/students','controlpanelcontrollers\StudentController@setPasswords')->name('passwords.students');
+    Route::get('/passwords/students/{type}','controlpanelcontrollers\TrainingController@setPasswords')->name('passwords.students');
     Route::get('/passwords/enterprises','controlpanelcontrollers\EnterpriseController@setPasswords')->name('passwords.enterprises');
 
-=======
-    Route::get('/passwords/students','controlpanelcontrollers\StudentController@setPasswords')->name('passwords.students');
-    Route::get('/passwords/enterprises','controlpanelcontrollers\EnterpriseController@setPasswords')->name('passwords.enterprises');
->>>>>>> 2604c2d2c5f1cf9afd7a13b4f9afaee1ec91026f
     Route::get('/slider/create','controlpanelcontrollers\SliderController@create')->name('slider.create');
     Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
     Route::get('/slider','controlpanelcontrollers\SliderController@index')->name('slider.index');
@@ -57,10 +47,6 @@ Route::group(['prefix' => 'controlpanel'], function () {
     Route::get('slider/destroy/{id}','controlpanelcontrollers\SliderController@destroy')->name('slider.destroy');
     Route::get('slider/edit/{id}', 'controlpanelcontrollers\SliderController@edit')->name('slider.edit');
     Route::put('slider/update/{id}', 'controlpanelcontrollers\SliderController@update')->name('slider.update');
-
-
-//    Route::get('/specialTraining/approved','controlpanelcontrollers\TrainingController@getSpecialTrainingStudents')->name('special.getSpecialTrainingStudents');
-//    Route::post('/specialTraining','controlpanelcontrollers\TrainingController@getApproved')->name('special.getApproved');
 
     Route::get('export/students/{city}', 'controlpanelcontrollers\ImportExportController@export')->name('export.students');
     Route::get('importView', 'controlpanelcontrollers\ImportExportController@importView');

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\controlpanelcontrollers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EnterprisePassword;
+use App\Mail\NewPassword;
 use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 const ENTERPRISE_PAGINATION = 10;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
 class EnterpriseController extends Controller
 {
     public function index(Request $request){
@@ -51,9 +53,10 @@ class EnterpriseController extends Controller
         foreach ($supervisors as $supervisor){
             $password = new Password();
             $password->userId = $supervisor->userId ;
-            $stdPassword =str::random(4). substr($supervisor->mobile,-4);
-            $password->password = $stdPassword;
+            $password->password = str::random(6);
             $password->save();
+            Mail::to($supervisor->email)->send(new EnterprisePassword($password->password));
+
         }
         return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
 
