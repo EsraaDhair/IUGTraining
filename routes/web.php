@@ -12,12 +12,16 @@
 */
 
 
+<<<<<<< HEAD
 
 
 
 Route::get('/', 'websitecontrollers\homeController@index')->name('home');
 
 
+=======
+Route::get('/','websitecontrollers\HomeController@home')->name('home');
+>>>>>>> 4b6fe999423da59bd616ed58ba61aa9df1626da6
 Route::get('/Training/manual',function (){
     return view('website.Training_manual');
 })->name('Training.manual');
@@ -29,7 +33,7 @@ Route::get('/Contact/Us',function (){
 })->name('contact.us');
 
 
-Route::group(['prefix' => 'controlpanel'], function () {
+Route::group(['prefix' => 'controlpanel' ,'middleware'=>'auth'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
     Route::get('/enterprises','controlpanelcontrollers\EnterpriseController@index')->name('enterprises.index');
     Route::get('/general/training','controlpanelcontrollers\TrainingController@getGeneralTrainingStudents')->name('training.general');
@@ -60,3 +64,7 @@ Route::post('/student','websitecontrollers\stdRegistrationController@store')->na
 Route::get('/enterprise/create','websitecontrollers\entRegisterController@create')->name('ent.create');
 Route::post('/enterprise','websitecontrollers\entRegisterController@store')->name('ent.store');
 
+Route::get('/student/general','websitecontrollers\studentController@viewForGeneral');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
