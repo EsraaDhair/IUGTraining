@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
        $user = Auth::user();
+       dd($user);
        if ($user->name=="admin"){
            return view('base_layout.students.studentsList');
        }

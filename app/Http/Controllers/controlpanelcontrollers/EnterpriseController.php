@@ -8,17 +8,11 @@ use App\Mail\NewPassword;
 use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
+
 const ENTERPRISE_PAGINATION = 10;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-=======
 
-const ENTERPRISE_PAGINATION = 10;
-
-use Illuminate\Support\Str;
-
->>>>>>> 4b6fe999423da59bd616ed58ba61aa9df1626da6
 class EnterpriseController extends Controller
 {
     public function index(Request $request){

@@ -24,35 +24,52 @@
 {{--            <span class="sr-only">Next</span>--}}
 {{--        </a>--}}
 {{--    </div>--}}
+
     <div class="slider">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                @for($i=0;$i<count($sliders);$i++)
+                    @if($i==0)
+                <li data-target="#carouselExampleCaptions" data-slide-to="{{$i}}" class="active"></li>
+                    @else
+                <li data-target="#carouselExampleCaptions" data-slide-to="{{$i}}"></li>
+                    @endif
+                @endfor
             </ol>
             <div class="carousel-inner">
+                @foreach($sliders as $slider)
+                    @if($loop->first)
                 <div class="carousel-item active">
-                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{asset($slider->image)}}" class="d-block w-100" alt="..." width="1319" height="415.61" style="opacity: 0.4;">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h1 class="display-4" style="color: black;">{{$slider->title}}</h1>
+                        <p class="lead" style="color: black; font-size:35px;">{{$slider->subTitle}}</p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
-                </div>
+                    @else
+                        <div class="carousel-item ">
+                            <img src="{{asset($slider->image)}}" class="d-block w-100" alt="..." width="1319" height="415.61" style="opacity: 0.5;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1 class="display-4" style="color: black;">{{$slider->title}}</h1>
+                                <p class="lead " style="color: black; font-size:35px;">{{$slider->subTitle}}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">--}}
+{{--                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                        <h5>Second slide label</h5>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img src="{{asset('website/img/p.png')}}" class="d-block w-100" alt="...">--}}
+{{--                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                        <h5>Third slide label</h5>--}}
+{{--                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

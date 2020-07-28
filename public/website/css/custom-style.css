@@ -197,12 +197,11 @@ h4{
 }
 
 .student .container-fluid .row .col-md-6 img{
-    width: 200px;
+    width: 400px;
     height: 300px;
     float: right;
     margin-right: 150px;
     display: block;
-    background: transparent;
     padding: 8px;
     border: 5px solid #5badbb;
     box-shadow: 10px 10px 10px #999;

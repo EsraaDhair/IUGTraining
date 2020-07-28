@@ -18,9 +18,10 @@ class ImportExportController extends Controller
     {
         return Excel::download(new TrainingExport($city), 'training.xlsx');
     }
+
     public function import()
     {
         Excel::import(new TrainingImport(),request()->file('file'));
-        return back();
+        return back()->with('success','تم استيراد البيانات واضافتها بنجاح');
     }
 }

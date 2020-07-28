@@ -16,7 +16,7 @@
     </div>
 
     <div class="container-fluid gray">
-        <p class="text-center lead text-dark">
+        <p class="text-center lead text-dark m-3">
             يمكنك التواصل معنا من خلال الهاتف
             او البريد الالكتروني أو مواقع التواصل الاجتماعي      </p>
 

@@ -219,9 +219,9 @@ class TrainingController extends Controller
             $password = new Password();
             $password->userId = $student->userId ;
             $password->password = str::random(6);
-            Mail::to($student->email)->send(new NewPassword($password->password));
+//            Mail::to($student->email)->send(new NewPassword($password->password));
             $password->save();
-            sleep(1);
+//            sleep(1);
         }
 
         return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');

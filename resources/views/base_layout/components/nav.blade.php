@@ -6,20 +6,17 @@
                 <span></span>
             </div>
         </li>
+        <br>
+        <br>
 		<li class="sidebar-search-wrapper">
-            <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
-                <a href="javascript:;" class="remove">
-                    <i class="icon-close"></i>
-                </a>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                                            <a href="javascript:;" class="btn submit">
-                                                <i class="icon-magnifier"></i>
-                                            </a>
-                                        </span>
-                </div>
-            </form>
+
+        </li>
+        <li class="nav-item start ">
+            <a href="{{route('admin.home')}}" class="nav-link nav-toggle">
+                <i class="fa fa-dashboard"></i>
+                <span class="title">الرئيسية</span>
+                <span class="arrow"></span>
+            </a>
         </li>
         <li class="nav-item start ">
             <a href="javascript:;" class="nav-link nav-toggle">
@@ -92,6 +89,21 @@
                 </li>
                 <li class="nav-item start ">
                     <a href="{{route('slider.create')}}" class="nav-link ">
+                        <i class="fa fa-plus"></i>
+                        <span class="title">إضافة</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item start ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-file-excel-o"></i>
+                <span class="title">بيانات التدريب من اكسل </span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item start ">
+                    <a href="{{route('import.view')}}" class="nav-link ">
                         <i class="fa fa-plus"></i>
                         <span class="title">إضافة</span>
                     </a>

@@ -7,7 +7,7 @@
                 </div>
                 <div class="f_col_right clearfix">
                     <ul class="f_menu clearfix">
-                        <li><a href="{{route('home')}}">الرئيسية</a></li>
+                        <li><a href="{{url('/')}}">الرئيسية</a></li>
                         <li><a href="{{route('Training.manual')}}">دليل التدريب</a></li>
                     </ul>
                 </div>
