@@ -24,10 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $user = Auth::user();
-       if ($user->name=="admin"){
-           return view('base_layout.students.studentsList');
-       }
-
+//       $user = Auth::user();
+//       if ($user->name == 'admin'){
+//           return view('base_layout.students.studentsList');
+//       }else{
+//           return view('website.home');
+//       }
+        return view('home');
     }
 }

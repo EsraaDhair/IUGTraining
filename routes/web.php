@@ -53,7 +53,7 @@ Route::post('/student','websitecontrollers\stdRegistrationController@store')->na
 Route::get('/enterprise/create','websitecontrollers\entRegisterController@create')->name('ent.create');
 Route::post('/enterprise','websitecontrollers\entRegisterController@store')->name('ent.store');
 
-Route::get('/student/general','websitecontrollers\studentController@viewForGeneral');
+Route::get('/student','websitecontrollers\studentController@viewData');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\controlpanelcontrollers;
 
 use App\Http\Controllers\Controller;
 use App\Password;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -43,11 +44,10 @@ class StudentController extends Controller
             ->join('students', 'users.id', '=', 'students.userId')
             ->select('users.*', 'students.*')->get();
         foreach ($students as $student){
-            $password = new Password();
-            $password->userId = $student->userId ;
+            $user = User::findorfail($student->id);
             $stdPassword =str::random(2).substr($student->stdId,-4) . substr($student->mobile,-4);
-            $password->password = $stdPassword;
-            $password->save();
+            $user->password = $stdPassword;
+            $user->update();
         }
         return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
 

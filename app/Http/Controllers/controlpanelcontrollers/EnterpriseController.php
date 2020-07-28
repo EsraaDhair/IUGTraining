@@ -4,6 +4,7 @@ namespace App\Http\Controllers\controlpanelcontrollers;
 
 use App\Http\Controllers\Controller;
 use App\Password;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -51,11 +52,10 @@ class EnterpriseController extends Controller
             ->join('supervisors', 'users.id', '=', 'supervisors.userId')
             ->select('users.*', 'supervisors.*')->get();
         foreach ($supervisors as $supervisor){
-            $password = new Password();
-            $password->userId = $supervisor->userId ;
+            $user = User::findorfail($supervisor->id);
             $stdPassword =str::random(4). substr($supervisor->mobile,-4);
-            $password->password = $stdPassword;
-            $password->save();
+            $user->password = $stdPassword;
+            $user->update();
         }
         return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
 
