@@ -61,8 +61,12 @@ Route::post('/student','websitecontrollers\stdRegistrationController@store')->na
 Route::get('/enterprise/create','websitecontrollers\entRegisterController@create')->name('ent.create');
 Route::post('/enterprise','websitecontrollers\entRegisterController@store')->name('ent.store');
 
+<<<<<<< HEAD
 Route::get('/student/general','websitecontrollers\studentController@viewForGeneral');
 
+=======
+Route::get('/student','websitecontrollers\studentController@viewData');
+>>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\controlpanelcontrollers;
 use App\Http\Controllers\Controller;
 use App\Mail\NewPassword;
 use App\Password;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -40,5 +41,19 @@ class StudentController extends Controller
         return view('base_layout.students.studentsList',['students'=>$students]);
     }
 
+<<<<<<< HEAD
+=======
+    public function setPasswords(){
+        $students = DB::table('users')
+            ->join('students', 'users.id', '=', 'students.userId')
+            ->select('users.*', 'students.*')->get();
+        foreach ($students as $student){
+            $user = User::findorfail($student->id);
+            $stdPassword =str::random(2).substr($student->stdId,-4) . substr($student->mobile,-4);
+            $user->password = $stdPassword;
+            $user->update();
+        }
+        return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
+>>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
 
 }

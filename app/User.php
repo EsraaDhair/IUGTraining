@@ -2,7 +2,13 @@
 
 namespace App;
 
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
+<<<<<<< HEAD
+=======
+
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
 
 
 /**
@@ -12,7 +18,7 @@ class User extends Authenticatable
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'email', 'mobile'];
+    protected $fillable = ['name', 'email','password', 'mobile'];
     protected $dates = ['created_at', 'updated_at'];
 
     // Admin has many users
