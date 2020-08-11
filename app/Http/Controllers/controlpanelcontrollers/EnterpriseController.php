@@ -53,20 +53,15 @@ class EnterpriseController extends Controller
         $supervisors = DB::table('users')
             ->join('supervisors', 'users.id', '=', 'supervisors.userId')
             ->select('users.*', 'supervisors.*')->get();
-        foreach ($supervisors as $supervisor){
-<<<<<<< HEAD
-            $password = new Password();
-            $password->userId = $supervisor->userId ;
-            $password->password = str::random(6);
-            $password->save();
-            Mail::to($supervisor->email)->send(new EnterprisePassword($password->password));
 
-=======
-            $user = User::findorfail($supervisor->id);
-            $stdPassword =str::random(4). substr($supervisor->mobile,-4);
-            $user->password = $stdPassword;
-            $user->update();
->>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
+        foreach ($supervisors as $supervisor){
+            $password= str::random(6);
+            Mail::to($supervisor->email)->send(new EnterprisePassword($password));
+            sleep(1.1);
+            $password=bcrypt($password);
+            $affected = DB::table('users')
+                ->where('id', '=',$supervisor->id)
+                ->update(['password' =>$password ]);
         }
         return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
 

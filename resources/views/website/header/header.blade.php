@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-lg navbar-light ">
-    <a class="navbar-brand" href="#">    <img src="{{asset('website/img/logo.png')}}" width="50" height="50" class="d-inline-block" alt="logo">
+    <a class="navbar-brand" href="{{url('/')}}">    <img src="{{asset('website/img/logo.png')}}" width="50" height="50" class="d-inline-block" alt="logo">
         كلية تكنولوجيا المعلومات</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -16,6 +16,13 @@
                 <a class="nav-link" href="{{route('contact.us')}}">التواصل معنا</a>
             </li>
         </ul>
-        <button type="button" class="btn btn-primary btn-sm rounded-pill" onclick="window.location='{{ url("/home") }}'">تسجيل دخول</button>
+        @auth
+            <button type="button" class="btn btn-primary btn-sm rounded-pill" onclick="window.location='{{ url("/logout/custom") }}'">تسجيل الخروج</button>
+        @endauth
+
+        @guest
+            <button type="button" class="btn btn-primary btn-sm rounded-pill" onclick="window.location='{{ url("/home") }}'">تسجيل دخول</button>
+        @endguest
+
     </div>
 </div>

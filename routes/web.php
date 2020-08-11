@@ -1,5 +1,13 @@
 <?php
 
+Route::get('create-admin', function () {
+    \App\User::create([
+        'name' => 'Admin',
+        'email' => env('MAIL_FROM_ADDRESS'),
+        'mobile' => '0596290149',
+        'password' => bcrypt('admin'),
+    ]);
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +18,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/logout/custom', ['as' => 'logout.custom', 'uses' => 'Controller@userLogout']);
 
 
 Route::get('/','websitecontrollers\HomeController@home')->name('home');
@@ -27,7 +36,7 @@ Route::get('/Contact/Us',function (){
 
 
 
-Route::group(['prefix' => 'controlpanel' ], function () {
+Route::group(['prefix' => 'controlpanel' ,'middleware'=>'auth'], function () {
     Route::get('/students','controlpanelcontrollers\StudentController@index')->name('students.index');
     Route::get('/enterprises','controlpanelcontrollers\EnterpriseController@index')->name('enterprises.index');
     Route::get('/general/training','controlpanelcontrollers\TrainingController@getGeneralTrainingStudents')->name('training.general');
@@ -42,7 +51,6 @@ Route::group(['prefix' => 'controlpanel' ], function () {
     Route::post('/slider','controlpanelcontrollers\SliderController@store')->name('slider.store');
     Route::get('/slider','controlpanelcontrollers\SliderController@index')->name('slider.index');
 
-    Route::get('slider/destroy/{id}','controlpanelcontrollers\SliderController@destroy')->name('slider.destroy');
     Route::get('slider/edit/{id}', 'controlpanelcontrollers\SliderController@edit')->name('slider.edit');
     Route::put('slider/update/{id}', 'controlpanelcontrollers\SliderController@update')->name('slider.update');
 
@@ -58,15 +66,18 @@ Route::group(['prefix' => 'controlpanel' ], function () {
 Route::get('/student/create','websitecontrollers\stdRegistrationController@create')->name('std.create');
 Route::post('/student','websitecontrollers\stdRegistrationController@store')->name('std.store');
 
+
 Route::get('/enterprise/create','websitecontrollers\entRegisterController@create')->name('ent.create');
 Route::post('/enterprise','websitecontrollers\entRegisterController@store')->name('ent.store');
 
-<<<<<<< HEAD
-Route::get('/student/general','websitecontrollers\studentController@viewForGeneral');
 
-=======
-Route::get('/student','websitecontrollers\studentController@viewData');
->>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
+
+Route::get('/student/viewTraining/info','websitecontrollers\studentController@viewData')->name('website.viewInfo');
+
+Route::get('/supervisor/viewTraining/info','websitecontrollers\studentController@viewSupervisorData')->name('website.viewSupervisorInfo');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

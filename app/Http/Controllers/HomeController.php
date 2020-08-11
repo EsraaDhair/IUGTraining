@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,21 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-       $user = Auth::user();
-       dd($user);
-       if ($user->name=="admin"){
-           return view('base_layout.students.studentsList');
-       }
-
-=======
-//       $user = Auth::user();
-//       if ($user->name == 'admin'){
-//           return view('base_layout.students.studentsList');
-//       }else{
-//           return view('website.home');
-//       }
-        return view('home');
->>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
+        $role = DB::table('roles')->where('userId', '=', Auth::id())
+            ->select('roles.type')
+            ->get();
+        if ($role[0]->type == "admin") {
+            return redirect(route('admin.home'));
+        } else if ($role[0]->type == "supervisor") {
+            return  redirect(route('website.viewSupervisorInfo'));
+        } else if ($role[0]->type == "student") {
+            return redirect(route('website.viewInfo'));
+        }
+        return null;
     }
 }

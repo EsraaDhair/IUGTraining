@@ -10,6 +10,7 @@ use App\Student;
 use App\Training;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class stdRegistrationController extends Controller
 {
@@ -62,6 +63,7 @@ class stdRegistrationController extends Controller
             if (!empty($request->placeOfTraining)) {
                 $training->placeOfTraining = $request->placeOfTraining;
                 $training->sector=$request->choice;
+
             }
             if($request->type=="general"){
                 $training->type='G';
@@ -72,6 +74,7 @@ class stdRegistrationController extends Controller
                 $choices->save();
             }else if($request->type=="special"){
                 $training->type='S';
+                $training->enterpriseId=$this->getEnterpriseId($request->placeOfTraining);
             }
             $training->save();
             return redirect()->back()->with('success', 'تم تسجيل بياناتك بنجاح!');
@@ -110,6 +113,15 @@ class stdRegistrationController extends Controller
             'type.required'=>'يجب اختيار نوع التدريب',
 
         ];
+    }
+    private function getEnterpriseId($name){
+        $id=0;
+        $enterprises=DB::table('enterprises')
+            ->where('name','=',$name)
+            ->select('enterprises.id')
+            ->get();
+        $id=$enterprises[0]->id;
+        return $id;
     }
 
 }

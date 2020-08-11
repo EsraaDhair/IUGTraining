@@ -138,6 +138,8 @@
                                     </div>
                                     <div class="form-group" style="display: none" id="enterprise">
                                         <input type="text" class="form-control" placeholder="مكان الندريب *" name="placeOfTraining" value="{{old('placeOfTraining')}}"/>
+                                  <br>
+                                   <a href="{{route('ent.create')}}" target="_blank">الضغط هنا لتسجيل بيانات المؤسسة التي ترغب التدرب بها </a>
                                     </div>
                                 </div>
                                 <div class="col-md-3">

@@ -1,8 +1,18 @@
-<div class="card">
-    <h5 class="card-header">Featured</h5>
+@extends('website.base_layout')
+@section('content')
+    <div class="container">
+<div class="card m-5">
+    <h5 class="card-header text-center">بيانات التدريب الميداني</h5>
     <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title" style="text-align: right">الطالب/ة {{\Illuminate\Support\Facades\Auth::user()->name}} ، هذه هي تفاصيل التدريب الميداني :</h5>
+       <br>
+        <h6 style="text-align: right">اسم الشركة :</h6>
+        <p style="text-align: center">{{$enterprise[0]->name}}</p>
+        <h6 style="text-align: right">عنوان الشركة :</h6>
+        <p style="text-align: center">{{$enterprise[0]->city . ' '.$enterprise[0]->street}}</p>
+        <h6 style="text-align: right">مجال التدريب :</h6>
+        <p style="text-align: center">{{$student[0]->sector}}</p>
     </div>
 </div>
+    </div>
+@endsection

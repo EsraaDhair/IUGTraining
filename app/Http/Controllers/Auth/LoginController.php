@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Role;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 
 class LoginController extends Controller
@@ -24,33 +27,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-<<<<<<< HEAD
-//    protected $redirectTo = RouteServiceProvider::HOME;
-
-    protected function redirectTo()
-    {
-        dd('helo');
-
-
-        $user = Auth::user();
-        dd($user);
-
-
-//        if($user->hasRole('user')){
-//            return 'website/home';
-//        }else{
-//            return 'controlpanel/home';
-//        }
-    }
-=======
-    protected $redirectTo = '/home';
->>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -59,4 +35,28 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+
+    protected function redirectTo()
+    {
+        $role = DB::table('roles')->where('userId', '=', Auth::id())
+            ->select('roles.type')
+            ->get();
+        if ($role[0]->type == "admin") {
+            return 'controlpanel/dashboard';
+        } else if ($role[0]->type == "supervisor") {
+            return 'supervisor/viewTraining/info';
+        } else if ($role[0]->type == "student") {
+            return 'student/viewTraining/info';
+        }
+        return null;
+    }
+
+
+
 }

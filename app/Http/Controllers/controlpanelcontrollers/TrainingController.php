@@ -57,10 +57,60 @@ class TrainingController extends Controller
 
     }
     public function distributeStudents(){
-        // read general type students info form DB
-        $gTrainings =$this->readGeneralTrainingInfo();
-        // read Enterprises info from DB
-        $enterprises= $this->readEnterprisesInfo();
+        $gTrainings =$this->readGeneralTrainingInfo(); // read general type students info form DB
+        $enterprises= $this->readEnterprisesInfo();   // read Enterprises info from DB
+        // generate general training students score with each enterprise
+        $studentsScore=$this->generateStudentsScores($gTrainings,$enterprises);
+        $distTemp=$this->sortingStudentsScoresDescendingOrder($studentsScore);//sorting students scores in descending order
+        $distTemp2 = array(); $maxscore = 0; $distributed = array();
+        foreach ($distTemp as $key => $value) {$s_id = $key;
+            foreach ($value as $enterprise) {
+                $e_id = $enterprise["enterprise_id"]; //get the enterprise id, trainees needed and score
+                $s_score = $enterprise["total_score"]; //for the first time the enterprise is looped create an empty entry for it
+                $en_key=$e_id.'-'.$enterprise["sector_id"];
+                if (!array_key_exists($en_key, $distTemp2)) {
+                    $distTemp2[$en_key] = $this->defineEnterpriseArray($enterprises,$enterprise,$e_id);
+                }
+                $temparr = array(
+                    'student_id' => $s_id,  'score' => $s_score,
+                    'student_name' =>$this->getStdInfo($gTrainings,$s_id)['name'],'student_city' =>$this->getStdInfo($gTrainings,$s_id)['city'],);
+                if(count($distTemp2[$en_key]["students"]) < $distTemp2[$en_key]["female_traniees"]+$distTemp2[$en_key]["male_traniees"] && !in_array($s_id, $distributed)){//if the enterprise is not full yet AND the student is not distributed
+                    //check the student max score with the previously looped student & if the current student is >,add the student to the start of the array
+                        if ($s_score > $maxscore) {
+                            array_unshift($distTemp2[$en_key]["students"], $temparr);
+                            $maxscore = $s_score;
+                        } else {
+                            array_push($distTemp2[$en_key]["students"], $temparr);
+                        }
+                        $sector=$distTemp2[$en_key]['sector'];
+                        array_push($distributed, $s_id); //add the current student to the done array
+                        $this->addDistributionData($s_id,$e_id,$sector);}}}
+        if(count($distributed)==count($gTrainings)) { // check if all general students are distributed
+            return view('base_layout.training.studentsDistribution', ['Training' => $distTemp2]);}
+        else
+            $this->distributeStudents();
+        return view('base_layout.training.studentsDistribution',['Training'=>$distTemp2]);
+    }
+
+    // set password randomly ( 6 length)
+    public function setPasswords($type){
+        $students = DB::table('users')
+            -> join('training','users.id','=','training.studentId')
+            ->where('type','=',$type)
+            ->select('users.*')->get();
+        foreach ($students as $student){
+            $password= str::random(6);
+            Mail::to($student->email)->send(new NewPassword($password));
+            sleep(1.1);
+            $password=bcrypt($password);
+            $affected = DB::table('users')
+                ->where('id', '=',$student->id)
+                ->update(['password' =>$password ]);
+        }
+        return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
+
+    }
+    private function generateStudentsScores($TrianingData , $enterprises){
         $studentsScore=[];
 
         // define distribution criterias
@@ -69,7 +119,7 @@ class TrainingController extends Controller
             'city' => array('total_score' => 50, 'secondary_score' => 0), );
 
         // starting matching the student with each enterprise based on city and sector
-        foreach ($gTrainings as $gstd) {
+        foreach ($TrianingData as $gstd) {
             $student_id=$gstd->stdId;
             $student_first_choice = $gstd->first_choice;
             $student_second_choice = $gstd->second_choice;
@@ -122,7 +172,14 @@ class TrainingController extends Controller
                 }
             }
         }
-        foreach ($studentsScore as $score){
+        return $studentsScore;
+
+    }
+    private function sortingStudentsScoresDescendingOrder($studentsSores){
+        $distTemp=[];
+        //loop the sorted array and create array for each enterprise
+        //assign the top scored students to the enterprise taking in account the trainees number
+        foreach ($studentsSores as $score){
             $student_id = $score['student_id'];
             $Enterprises = $score;
             //remove the student_id from the start of the array
@@ -140,92 +197,21 @@ class TrainingController extends Controller
             }
             $distTemp[$student_id] = $enterprisestemp;
         }
-      // dd($distTemp);
-        //loop the sorted array
-            //create array for each enterprise
-            //assign the top scored students to the enterprise taking in account the trainees number
-        $distTemp2 = array();
-        $maxscore = 0;
-        $distributed = array();
-        foreach ($distTemp as $key => $value) {
-            //get the student id
-            $s_id = $key;
-//           $g= substr($s_id, 0, 1); //student gender : 1/M , 2/F.
-//            dd($g);
-            foreach ($value as $enterprise) {
-                //get the enterprise id, trainees needed and score
-                $e_id = $enterprise["enterprise_id"];
-                $s_score = $enterprise["total_score"];
-                //for the first time the enterprise is looped
-                //create an empty entry for it
-
-                $en_key=$e_id.'-'.$enterprise["sector_id"];
-                if (!array_key_exists($en_key, $distTemp2)) {
-                    $distTemp2[$en_key] = array(
-                        'enterprise_id' => $enterprise["enterprise_id"] ,
-                        'female_traniees' => $enterprise["female_traniees"] ,
-                        'male_traniees' => $enterprise["male_traniees"] ,
-                        'enterprise_name' => $this->getEnterpriseInfo($enterprises,$e_id)['name'],
-                        "enterprise_city" => $this->getEnterpriseInfo($enterprises,$e_id)['city'],
-                        "sector_id" => $enterprise["sector_id"] ,
-                        "sector" => $enterprise["E_sector"] ,
-                        "students" => array(
-                        )
-                    );
-                }
-                $temparr = array(
-                    'student_id' => $s_id,
-                    'score' => $s_score,
-                    'student_name' =>$this->getStdInfo($gTrainings,$s_id)['name'],
-                    'student_city' =>$this->getStdInfo($gTrainings,$s_id)['city'],
-                );
-                //if the enterprise is not full yet AND the student is not distributed
-                if(count($distTemp2[$en_key]["students"]) < $distTemp2[$en_key]["female_traniees"]+$distTemp2[$en_key]["male_traniees"] && !in_array($s_id, $distributed)){
-                        if ($s_score > $maxscore) {
-                            array_unshift($distTemp2[$en_key]["students"], $temparr);
-                            $maxscore = $s_score;
-                        } else {
-                            array_push($distTemp2[$en_key]["students"], $temparr);
-                        }
-                        $en_id=$e_id;
-                        $sector=$distTemp2[$en_key]['sector'];
-                        //add the current student to the done array
-                        array_push($distributed, $s_id);
-                        $this->addDistributionData($s_id,$en_id,$sector);
-                    //check the student max score with the previously looped student
-                    //if the current student is > , add the student to the start of the array
-                }
-            }
-        }
-
-
-        // check if all general students are distributed
-        if(count($distributed)==count($gTrainings)) {
-            return view('base_layout.training.studentsDistribution', ['Training' => $distTemp2]);
-        }
-        else
-            $this->distributeStudents();
-        return view('base_layout.training.studentsDistribution',['Training'=>$distTemp2]);
+        return $distTemp;
     }
-
-    // set password randomly ( 6 length)
-    public function setPasswords($type){
-        $students = DB::table('users')
-            -> join('training','users.id','=','training.studentId')
-            ->join('students', 'users.id', '=', 'students.userId')
-            ->where('type','=',$type)
-            ->select('users.*', 'students.*')->get();
-        foreach ($students as $student){
-            $password = new Password();
-            $password->userId = $student->userId ;
-            $password->password = str::random(6);
-//            Mail::to($student->email)->send(new NewPassword($password->password));
-            $password->save();
-//            sleep(1);
-        }
-
-        return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
-
+    private function defineEnterpriseArray($enterprises,$enterprise,$e_id){
+        $array=array(
+            'enterprise_id' => $enterprise["enterprise_id"] ,
+            'female_traniees' => $enterprise["female_traniees"] ,
+            'male_traniees' => $enterprise["male_traniees"] ,
+            'enterprise_name' => $this->getEnterpriseInfo($enterprises,$e_id)['name'],
+            "enterprise_city" => $this->getEnterpriseInfo($enterprises,$e_id)['city'],
+            "sector_id" => $enterprise["sector_id"] ,
+            "sector" => $enterprise["E_sector"] ,
+            "students" => array(
+            )
+        );
+        return $array;
     }
     private function readGeneralTrainingInfo(){
         $gTrainings= DB::table('training')
@@ -298,6 +284,13 @@ class TrainingController extends Controller
             ->update(['enterpriseId' => $eid,'sector'=>$sector,'approved'=>1]);
         return $affected;
     }
+    private function sendEmails($array){
+            foreach ($array as $arr){
+                Mail::to($arr['email'])->send(new NewPassword($arr['password']));
+                sleep(1);
+            }
+    }
+
 
 
 

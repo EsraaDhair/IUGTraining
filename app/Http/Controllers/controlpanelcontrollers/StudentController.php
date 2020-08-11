@@ -14,46 +14,33 @@ const STUDENT_PAGINATION = 10;
 
 class StudentController extends Controller
 {
-    public function index(Request $request){
-        $students=DB::table('users')
+    public function index(Request $request)
+    {
+        $students = DB::table('users')
             ->where([])
             ->join('students', 'users.id', '=', 'students.userId')
             ->select('users.*', 'students.*');
-        if($request->has('name'))
-            $students=$students->where('name','like','%'.$request->input('name').'%');
-        if($request->has('stdId'))
-            $students=$students->where('stdId','like','%'.$request->input('stdId').'%');
-        $students=$students->paginate(STUDENT_PAGINATION);
+        if ($request->has('name'))
+            $students = $students->where('name', 'like', '%' . $request->input('name') . '%');
+        if ($request->has('stdId'))
+            $students = $students->where('stdId', 'like', '%' . $request->input('stdId') . '%');
+        $students = $students->paginate(STUDENT_PAGINATION);
 
-        foreach ($students as $student){
-            if($student->niche=='SD'){
-                $student->niche="تطوير برمجيات";
-            }else if($student->niche=='MM'){
-                $student->niche="الوسائط المتعددة و تطوير الويب";
-            }else if($student->niche=='CS'){
-                $student->niche="علوم الحاسوب";
-            }else if($student->niche=='IS'){
-                $student->niche="نظم تكنولوجيا المعلومات";
-            }else if($student->niche=='MO'){
-                $student->niche="الحوسبة المتنقلة و تطبيقات الأجهزة الذكية";
+        foreach ($students as $student) {
+            if ($student->niche == 'SD') {
+                $student->niche = "تطوير برمجيات";
+            } else if ($student->niche == 'MM') {
+                $student->niche = "الوسائط المتعددة و تطوير الويب";
+            } else if ($student->niche == 'CS') {
+                $student->niche = "علوم الحاسوب";
+            } else if ($student->niche == 'IS') {
+                $student->niche = "نظم تكنولوجيا المعلومات";
+            } else if ($student->niche == 'MO') {
+                $student->niche = "الحوسبة المتنقلة و تطبيقات الأجهزة الذكية";
             }
         }
-        return view('base_layout.students.studentsList',['students'=>$students]);
+        return view('base_layout.students.studentsList', ['students' => $students]);
     }
 
-<<<<<<< HEAD
-=======
-    public function setPasswords(){
-        $students = DB::table('users')
-            ->join('students', 'users.id', '=', 'students.userId')
-            ->select('users.*', 'students.*')->get();
-        foreach ($students as $student){
-            $user = User::findorfail($student->id);
-            $stdPassword =str::random(2).substr($student->stdId,-4) . substr($student->mobile,-4);
-            $user->password = $stdPassword;
-            $user->update();
-        }
-        return redirect()->back()->with('success', 'تم تعيين كلمات السر بنجاح!');
->>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
-
+//
 }

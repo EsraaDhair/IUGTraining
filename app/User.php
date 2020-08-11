@@ -4,11 +4,8 @@ namespace App;
 
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-<<<<<<< HEAD
-=======
 
 use Illuminate\Database\Eloquent\Model;
->>>>>>> 52ee958ba0985ae7a8462a62cc03fc6d9eda1d40
 
 
 /**
